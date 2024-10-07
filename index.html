@@ -1,218 +1,705 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Резюме-портфолио Natusix</title>
-    <style>
-     body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-  }
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Дудко Наталья</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
 
-  header {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
 
-  header h1 {
-    font-size: 2.5em;
-    margin: 0;
-  }
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
 
-  nav {
-    margin-top: 10px;
-  }
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
 
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2em;
-    transition: color 0.3s;
-  }
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
 
-  nav a:hover {
-    color: #ffdd57;
-  }
-      .container {
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
 
-      section {
-        background: white;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
 
-      section h2 {
-        font-size: 2em;
-        margin-bottom: 10px;
-        color: #4a90e2;
-      }
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
 
-      .project-item,
-      .skill-item {
-        margin-bottom: 20px;
-      }
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
 
-      .project-item img {
-        max-width: 100%;
-        border-radius: 8px;
-        margin-bottom: 10px;
-      }
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
 
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-      }
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
 
-      footer a {
-        color: #4a90e2;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
 
-      footer a:hover {
-        color: #ffdd57;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <!-- Логотип -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 200 60"
-        width="200"
-        height="60"
-      >
-        <rect width="200" height="60" fill="#f4f4f9" />
-        <text
-          x="10"
-          y="35"
-          font-family="Arial, sans-serif"
-          font-size="30"
-          fill="#333"
-          font-weight="bold"
-        >
-          Natusix
-        </text>
-        <circle
-          cx="170"
-          cy="30"
-          r="10"
-          stroke="#ff6347"
-          stroke-width="3"
-          fill="none"
-        />
-      </svg>
-      <h1>Natusix - Дизайн, который вдохновляет</h1>
-      <nav>
-        <a href="#about">Обо мне</a>
-        <a href="#projects">Проекты</a>
-        <a href="#skills">Хард скилы</a>
-      </nav>
-    </header>
-    <section id="joke" class="joke">
-      <h2>Анекдот про дизайнера</h2>
-      <p>
-        Дизайнер приходит к врачу и говорит: "Доктор, у меня депрессия, ничего
-        не радует." Врач отвечает: "Попробуйте изменить цветовую схему своей
-        жизни на более яркую!"
-      </p>
-      <p>
-        Анекдот про дизайнера:<br />— Сколько нужно дизайнеров, чтобы вкрутить
-        лампочку?<br />— Два. Один сделает красиво, другой скажет: «А мне не
-        нравится!»
-      </p>
-    </section>
-    <div class="container">
-      <section id="about" class="about">
-        <h2>Обо мне</h2>
-        <p>
-          Привет! Меня зовут Natusix, и я профессиональный дизайнер с более чем
-          5-летним опытом работы. Я создаю вдохновляющие и функциональные
-          дизайны для веб, приложений и брендинга. Я верю, что дизайн — это не
-          просто визуальная привлекательность, но и функциональность.
-        </p>
-      </section>
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
 
-      <section id="projects" class="projects">
-        <h2>Проекты</h2>
-        <div class="project-item">
-          <img src="project1.jpg" alt="Пример проекта 1" />
-          <h3>Проект 1 - Веб-дизайн для корпоративного сайта</h3>
-          <p>
-            Создала стильный и минималистичный дизайн для крупного корпоратива,
-            оптимизировав пользовательский опыт и повысив конверсию.
-          </p>
-        </div>
-        <div class="project-item">
-          <img src="project2.jpg" alt="Пример проекта 2" />
-          <h3>Проект 2 - Мобильное приложение</h3>
-          <p>
-            Разработка UI/UX для мобильного приложения, упрощение навигации и
-            улучшение удобства пользователя.
-          </p>
-        </div>
-      </section>
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
 
-      <section id="skills" class="skills">
-        <h2>Хард скилы</h2>
-        <div class="skill-item">
-          <h3>UI/UX дизайн</h3>
-          <p>
-            Разработка пользовательских интерфейсов с упором на опыт
-            пользователя.
-          </p>
-        </div>
-        <div class="skill-item">
-          <h3>Adobe Photoshop, Illustrator</h3>
-          <p>
-            Профессиональное владение инструментами для работы с графикой и
-            векторным дизайном.
-          </p>
-        </div>
-        <div class="skill-item">
-          <h3>Figma</h3>
-          <p>Создание прототипов, wireframes и интерактивных дизайнов.</p>
-        </div>
-      </section>
+mark {
+	background-color: transparent;
+}
 
-      <section id="intellect" class="intellect">
-        <h2>Интеллектуальные и когнитивные способности</h2>
-        <p>
-          Моя гениальность проявляется в способности быстро адаптироваться к
-          новым технологиям и методологиям дизайна. Я обладаю высоким уровнем
-          креативности, что позволяет мне находить уникальные решения для
-          сложных задач. Мои когнитивные способности включают аналитическое
-          мышление, внимание к деталям и способность к многозадачности, что
-          помогает мне эффективно управлять проектами и достигать поставленных
-          целей.
-        </p>
-      </section>
-    </div>
+.indented {
+	padding-left: 1.5em;
+}
 
-    <footer>
-      <p>
-        Связаться со мной:
-        <a href="mailto:natusix@example.com">natusix@example.com</a>
-      </p>
-      <p>&copy; 2024 Natusix. Все права защищены.</p>
-    </footer>
-  </body>
-</html>
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="94291148-0e1a-4bcd-ae8d-2c543e8e7d25" class="page sans"><header><img class="page-cover-image" src="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/twinpeaks.jpeg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%25D1%258F.jpeg"/></div><h1 class="page-title">Дудко Наталья</h1><p class="page-description"></p></header><div class="page-body"><p id="df936ead-bbe2-43c9-80e2-ea23e5867680" class="">Арт-директор внутренних продуктов МТС (b2e, b2b), это 70 дизайнеров и около 100 продуктов</p><p id="1183c4f5-7da8-8097-9320-cd4ef8ca9728" class="">
+</p><div id="1183c4f5-7da8-80c5-8c87-f49d02e4ed48" class="column-list"><div id="5d802983-80d8-4291-85d8-62824664869c" style="width:50%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ef990af9-e8d9-493d-b511-42bf18148c33"><div style="font-size:1.5em"><span class="icon">💃</span></div><div style="width:100%"><strong>Чем сейчас занимаюсь в роли арт-директора:</strong> <ul id="1183c4f5-7da8-808b-9c57-c6eb2989f251" class="bulleted-list"><li style="list-style-type:disc">Провожу собеседования и распределяю задачи между дизайн-лидами</li></ul><ul id="1183c4f5-7da8-8055-be04-ca6f7c1a706a" class="bulleted-list"><li style="list-style-type:disc">Создаю UI/UX паттерны для внутренних продуктов</li></ul><ul id="1183c4f5-7da8-804c-82c6-d03534aa5e43" class="bulleted-list"><li style="list-style-type:disc">Провожу митапы и воркшопы для дизайнеров</li></ul><ul id="1183c4f5-7da8-8079-b2df-f76f09dd718d" class="bulleted-list"><li style="list-style-type:disc">Курирую работу с внешними студиями</li></ul><ul id="1183c4f5-7da8-8022-a5f4-c5cac848ca39" class="bulleted-list"><li style="list-style-type:disc">Разрабатываю гайды по рабочим процессам</li></ul></div></figure><p id="1183c4f5-7da8-801d-a7d5-f6f6fa616fb7" class="">
+</p></div><div id="269fd314-a288-4e7e-82e0-babb95930668" style="width:50%" class="column"><p id="b2c38854-344d-42ed-8e57-b9bcf9fbdf22" class="">Каждые полгода замеряем eNPS дизайнеров, динамика по внутренним продуктам:</p><table id="1183c4f5-7da8-808d-945a-fe17f22af049" class="simple-table"><thead class="simple-table-header"><tr id="cb5c1835-6445-4930-8b86-9d6d71c86d07"><th id="n[[x" class="simple-table-header-color simple-table-header">eNPS</th><th id="C}zq" class="simple-table-header-color simple-table-header">Кол-во опрошенных</th><th id="Q^Lx" class="simple-table-header-color simple-table-header">Дата</th></tr></thead><tbody><tr id="fc62608a-b23e-420c-8514-3a4219c7d542"><td id="n[[x" class="">42,5%</td><td id="C}zq" class="">42</td><td id="Q^Lx" class="">сентябрь, 2023</td></tr><tr id="d40150e4-201b-49fa-910b-561cad1d445e"><td id="n[[x" class="">50%</td><td id="C}zq" class="">52</td><td id="Q^Lx" class="">февраль, 2024</td></tr><tr id="1183c4f5-7da8-800b-a88b-d878ba7a27ea"><td id="n[[x" class=""><mark class="highlight-teal">58% </mark></td><td id="C}zq" class="">50</td><td id="Q^Lx" class="">сентябрь, 2024</td></tr></tbody></table><p id="1183c4f5-7da8-8011-a5fe-cc64c9a9afdb" class="">
+</p></div></div><ul id="2146842d-f15d-4cc0-84e9-6ea9fc650fdb" class="toggle"><li><details open=""><summary><strong>Опыт работы</strong></summary><p id="db888920-95fa-4db8-82a3-6ec83b8e934b" class=""><code>Арт-директор</code> ПАО МТС<div class="indented"><p id="1183c4f5-7da8-8094-bd73-e9c653715088" class="">📅  <em>апрель 2023 — настоящее время</em></p><div id="1183c4f5-7da8-8086-b3fb-fa217bb8bf5f" class="collection-content"><h4 class="collection-title">Что делаю как арт-дир</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th></tr></thead><tbody><tr id="d5d62a02-3af4-4703-b042-f6a2e884b3f0"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%A7%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D1%80%D1%82-%D0%B4%D0%B8%D1%80%201183c4f57da88086b3fbfa217bb8bf5f/%D0%9E%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D0%BB%D0%B0%20%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5%20QDR%20(quarterly%20design%20revi%20d5d62a023af44703b042f6a2e884b3f0.html">Организовала регулярные QDR (quarterly design review) </a></td><td class="cell-EHV{"><time>@October 7, 2024 8:11 PM</time></td><td class="cell-;:_y"><span class="selected-value select-value-color-green">База знаний</span><span class="selected-value select-value-color-pink">Встречи</span><span class="selected-value select-value-color-default">Презентации</span></td></tr><tr id="8cb363eb-1137-492f-b9ed-80ed89741d19"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%A7%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D1%80%D1%82-%D0%B4%D0%B8%D1%80%201183c4f57da88086b3fbfa217bb8bf5f/%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D0%BB%D0%B0%20%D0%B4%D0%B2%D0%B0%20%D0%BC%D0%B8%D1%82%D0%B0%D0%BF%D0%B0%20Inside%20Team%20%D0%B2%202023%20%D0%B8%202024%208cb363eb1137492fb9ed80ed89741d19.html">Провела два митапа Inside Team в 2023 и 2024</a></td><td class="cell-EHV{"><time>@October 7, 2024 8:11 PM</time></td><td class="cell-;:_y"><span class="selected-value select-value-color-brown">Воркшоп</span><span class="selected-value select-value-color-pink">Встречи</span><span class="selected-value select-value-color-orange">Лекции</span><span class="selected-value select-value-color-red">Нетворкинг</span></td></tr><tr id="4e102325-dbb6-4b99-b1be-0361d6fdb71f"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%A7%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D1%80%D1%82-%D0%B4%D0%B8%D1%80%201183c4f57da88086b3fbfa217bb8bf5f/%D0%A1%D0%BE%D0%B1%D1%80%D0%B0%D0%BB%D0%B0%20%D0%B1%D0%B0%D0%B7%D1%83%20%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B8%CC%86%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%B0%D0%BC%20%D0%B8%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B8%CC%86%D0%BD-%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%204e102325dbb64b99b1be0361d6fdb71f.html">Собрала базу знаний по продуктам и дизайн-процессам</a></td><td class="cell-EHV{"><time>@October 7, 2024 8:11 PM</time></td><td class="cell-;:_y"></td></tr><tr id="1183c4f5-7da8-80fd-9707-dd7fb9e010f6"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%A7%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D1%80%D1%82-%D0%B4%D0%B8%D1%80%201183c4f57da88086b3fbfa217bb8bf5f/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%20%D1%87%D0%B0%D0%BF%D1%82%D0%B5%D1%80%D0%BE%D0%B2%201183c4f57da880fd9707dd7fb9e010f6.html">Система чаптеров</a></td><td class="cell-EHV{"><time>@October 7, 2024 8:38 PM</time></td><td class="cell-;:_y"></td></tr><tr id="1183c4f5-7da8-8002-b239-fdc9f66876ea"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%A7%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D1%80%D1%82-%D0%B4%D0%B8%D1%80%201183c4f57da88086b3fbfa217bb8bf5f/%D0%9A%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%82%20%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D1%80%D1%82%D0%B0%D0%BB%D0%B0%201183c4f57da88002b239fdc9f66876ea.html">Концепт корпоративного портала</a></td><td class="cell-EHV{"><time>@October 7, 2024 8:51 PM</time></td><td class="cell-;:_y"></td></tr><tr id="1183c4f5-7da8-80e2-a389-ce5ac0f1fbc8"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%A7%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D1%80%D1%82-%D0%B4%D0%B8%D1%80%201183c4f57da88086b3fbfa217bb8bf5f/%D0%9F%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0%D1%8E%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B8%CC%86%D0%BD-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D1%83%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F%D1%85%201183c4f57da880e2a389ce5ac0f1fbc8.html">Продвигаю дизайн-культуру на конференциях</a></td><td class="cell-EHV{"><time>@October 7, 2024 8:51 PM</time></td><td class="cell-;:_y"></td></tr><tr id="1183c4f5-7da8-8064-9700-fd4dfbe14b4a"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%A7%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D1%80%D1%82-%D0%B4%D0%B8%D1%80%201183c4f57da88086b3fbfa217bb8bf5f/%D0%9F%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD%D1%8B%20%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D0%B8%D1%85%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%201183c4f57da880649700fd4dfbe14b4a.html">Паттерны внутренних продуктов</a></td><td class="cell-EHV{"><time>@October 7, 2024 9:09 PM</time></td><td class="cell-;:_y"></td></tr><tr id="1183c4f5-7da8-80f4-a888-c5dbba5afce8"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%A7%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D1%80%D1%82-%D0%B4%D0%B8%D1%80%201183c4f57da88086b3fbfa217bb8bf5f/%D0%9F%D1%80%D0%BE%D0%B2%D0%BE%D0%B6%D1%83%20%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BE%D0%B1%D0%B5%D1%81%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8%CC%86%20%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%8E%D1%81%D1%8C%20%D1%81%D0%B2%D0%B5%D0%B6%D0%B5%D0%B8%CC%86%201183c4f57da880f4a888c5dbba5afce8.html">Провожу много собеседований и остаюсь свежей</a></td><td class="cell-EHV{"><time>@October 7, 2024 9:26 PM</time></td><td class="cell-;:_y"></td></tr></tbody></table><br/><br/></div><p id="1183c4f5-7da8-80ff-a878-cef92aad5732" class="">
+</p></div></p><ul id="1183c4f5-7da8-803d-841a-ee8087066900" class="toggle"><li><details open=""><summary><code>Дизайн-лид</code> МТС Диджитал, Ops Platform</summary><p id="1183c4f5-7da8-80f0-8755-f71f073759f2" class="">📅  <em>ноябрь 2021</em> <em>— апрель 2023 </em></p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1183c4f5-7da8-8011-8e34-eddc7bc9bb7d"><div style="font-size:1.5em"><span class="icon">💅</span></div><div style="width:100%"><p id="1183c4f5-7da8-80a7-afe1-c8f2e1f32bc5" class=""><strong>Чем занималась в роли чаптер-лида (9 продуктов и 5 дизайнеров):</strong></p><ul id="b5d009d0-ff57-46f3-9646-8bcc455cab1a" class="bulleted-list"><li style="list-style-type:disc">Участвовала в отборе и собеседованиях дизайнеров</li></ul><ul id="2be20e81-90bc-461b-84ba-743fb98772aa" class="bulleted-list"><li style="list-style-type:disc">Выступила перед PO/CPO своего чаптера о важности продуктового подхода <a href="https://disk.yandex.ru/i/3oF69HwnxJqG9w">Презентация</a> 🔗</li></ul><ul id="32692576-be6e-4e89-9dde-8917da8d1531" class="bulleted-list"><li style="list-style-type:disc">Транслировала дизайнерам стратегию развития чаптера и его продуктов</li></ul><ul id="eab30783-82ec-40bc-bbdc-7cf81ad30313" class="bulleted-list"><li style="list-style-type:disc">Помогала с концептами для новых продуктов и редизайном существующих</li></ul><ul id="7b6f6164-388f-4626-9db4-96f8747c5338" class="bulleted-list"><li style="list-style-type:disc">Проводила ревью дизайнеров, способствовала их развитию, делилась полезными материалами</li></ul><ul id="735ebaa0-efd0-4e21-a9b2-3e34fe557ad3" class="bulleted-list"><li style="list-style-type:disc">Контролировала внедрение дизайн-системы и повторное использование готовых компонентов в различных продуктах</li></ul><ul id="bfcf8fe1-abe4-4fd6-8184-55e1d1f57b9f" class="bulleted-list"><li style="list-style-type:disc">Обеспечивала продуктовый подход и правильно выстроенные дизайн-процессы в командах: проводила синки с продакт-менеджерами, составила роадмэп по развитию дизайн-процессов <a href="https://disk.yandex.ru/d/5XdfgzBIZi8_sw">Презентация</a> 🔗</li></ul><ul id="0195f3f5-d3a8-4183-9eb4-f70aa0d19d2c" class="bulleted-list"><li style="list-style-type:disc">Создала файл-каталог внутренних продуктов, который постепенно пополняется (ниже пример описания продукта в этом файле)<figure id="1183c4f5-7da8-8048-bc08-cf8f4b7dd6a0" class="image"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%25D0%25A1%25D0%25BD%25D0%25B8%25D0%25BC%25D0%25BE%25D0%25BA_%25D1%258D%25D0%25BA%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B0_2024-10-07_%25D0%25B2_22.13.51.png"><img style="width:2544px" src="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%25D0%25A1%25D0%25BD%25D0%25B8%25D0%25BC%25D0%25BE%25D0%25BA_%25D1%258D%25D0%25BA%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B0_2024-10-07_%25D0%25B2_22.13.51.png"/></a></figure></li></ul><ul id="bbb18604-290f-438b-9d70-336bf8998af7" class="bulleted-list"><li style="list-style-type:disc">Горжусь тем, что в 2021 году инициировала процесс закупки лицензий на Useberry для самостоятельного проведения UX-тестов. Изначально оплачивала лицензию сама, после нескольких успешных исследований убедила продакт-менеджера приобрести лицензии для нашего продукта. В итоге, лицензии закупили для двух трайбов, а сейчас доступ к Useberry есть у всех дизайнеров внутренних продуктов</li></ul></div></figure></details></li></ul><ul id="1183c4f5-7da8-802d-bbef-e3932fec9b08" class="toggle"><li><details open=""><summary><code>Старший продуктовый дизайнер</code> МТС Диджитал</summary><p id="1183c4f5-7da8-803a-99eb-f38f44a13c51" class="">📅  <em>ноябрь 2019</em> <em>— ноябрь 2021</em></p><ol type="1" id="45c37b66-431e-437e-8661-726146be885c" class="numbered-list" start="1"><li><code>Система инвентаризации </code><code><strong>IMS</strong></code><code> (оборудование, продукты, ресурсы, системы, сети, сотрудники и тд). </code></li></ol><ul id="1183c4f5-7da8-80b9-b3a3-d6be6978e9ac" class="bulleted-list"><li style="list-style-type:disc">Редизайн и UX-оптимизация системы</li></ul><ul id="1183c4f5-7da8-8060-9aae-f5841f00b0f8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Проведение интервью с пользователями, UX-тестирование текущей системы и прототипов</mark></li></ul><ul id="1183c4f5-7da8-8056-bc43-d6b98f873d77" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Создание и итерация макетов, еженедельные демо для стейкхолдеров</mark><p id="1183c4f5-7da8-80d7-99dd-f9198d194ffc" class="">
+</p></li></ul><ol type="1" id="8a4d4c4b-093b-4150-aeba-1dddc653cf72" class="numbered-list" start="1"><li><code>Мобильное приложения для сотрудников </code><code><strong>Наш МТС</strong></code><code>:</code><p id="71da5b99-14f7-49fc-8ab9-0d62e75e5c7b" class="">Гибридное приложение, написанное на Xamarin, является агрегатором многих внутренних сервисов МТС (HR-сервисы, административные и т.д.).</p><ul id="07ea1906-1eb3-454a-85ef-344dc3f288e7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Разрабатывала новые сервисы внутри приложения с разнообразным функционалом (Командировки, Отпуска, Учет документов, Согласования, Коворкинг и прочие)</mark></li></ul><ul id="62f3895d-25df-4cae-aa5e-2f57170baa37" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Взаимодействовала с множеством заказчиков (каждый новый сервис — это интеграция с веб-продуктом, у которого свой заказчик)</mark></li></ul><ul id="5f1c7678-04eb-4fbc-b487-aa4647154f2a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Внедрила UX-исследования и авторский надзор (проверяю пул-реквесты с видео и скриншотами)</mark></li></ul><ul id="1183c4f5-7da8-80fd-8b83-d0608bab8a61" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><strong>ДОБАВИТЬ КАРТИНКУ С СЕРВИСАМИ</strong></mark></li></ul><p id="1183c4f5-7da8-8088-abee-cb994a7ec992" class="">
+</p></li></ol><ol type="1" id="7b0495b3-2812-4095-8682-692efdfe6610" class="numbered-list" start="2"><li><code>Мобильное приложение </code><code><strong>Старт</strong></code><code> для кандидатов</code><p id="9a8ed67d-ed98-4e98-aac3-d033bbae11e2" class="">Приложение представляет собой дорожную карту по трудоустройству для соискателей в МТС. Оно включает встроенные курсы, чек-листы и тесты по безопасности.</p><ul id="1183c4f5-7da8-80b4-898d-e713a83c1bee" class="bulleted-list"><li style="list-style-type:disc">Проработка Customer Journey Map (CJM) сотрудника при трудоустройстве</li></ul><ul id="1183c4f5-7da8-808f-916c-f21aa0593439" class="bulleted-list"><li style="list-style-type:disc">Создание макетов в соответствии с CJM</li></ul><ul id="69fa0e15-0500-45c8-bfd5-487e2f55cdd8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Анализ первичных результатов исследований от HR-департамента, последующая оптимизация пользовательского пути и макетов</mark></li></ul><ul id="821f3d2f-9c05-4971-990c-aebe3472a06d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">После утверждения финальной версии возникла гипотеза о недостаточной понятности навигации. Было принято решение упростить ее, что привело к дополнительной итерации макетов</mark></li></ul><p id="1183c4f5-7da8-8095-abd7-e40888606230" class="">
+</p></li></ol><ol type="1" id="20b39ce3-864b-4745-9023-5390c4a844c1" class="numbered-list" start="3"><li><code>Система управления проектами и продуктами </code><code><strong>Da Vinci</strong></code><p id="07535b1a-760c-442e-a83a-b9fc8cb0767c" class="">Система для управления ИТ-проектами и инициативами внутри компании. Содержит структурированную информацию по проектам, отображая необходимые данные для стейкхолдеров в каждом проекте.</p><p id="a6465bf1-1941-4a68-a61a-b4ae810f2e21" class="">В системе можно назначать и получать высокоуровневые задачи по проекту (в отличие от детальных задач в Jira), устанавливать делегирования, быстро настраивать и выгружать отчеты, составлять бизнес-планы в блоках, а также отслеживать прогресс своих проектов и проектов коллег.</p><ul id="03a25bb8-9600-476d-bd58-4819585cd421" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Я кардинально переработала дизайн, созданный для MVP (из-за претензий заказчиков), тесно сотрудничая с аналитиками над новыми рабочими процессами и расширением функциональности.</mark></li></ul><ul id="1677978e-9d8e-405f-98ab-b3bad6f65d5e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Мы провели тестирование различных элементов функционала на целевой аудитории: аналитиках, руководителях проектов и продакт-оунерах.</mark></li></ul><ul id="c9fb5f88-7e7e-46d7-bd17-0ed7abf7cdcb" class="bulleted-list"><li style="list-style-type:disc">Перевели компоненты на элементы дизайн-системы</li></ul><p id="1183c4f5-7da8-8065-8509-dca300d4b851" class="">
+</p></li></ol><ol type="1" id="19b0f786-5ba1-462c-bd74-4fff808febcc" class="numbered-list" start="5"><li><code>Система по управлению инцидентами и задачами </code><code><strong>Smart ITSM</strong></code><p id="09438760-e35c-4649-82e1-65613d3a1063" class="">Упрощенный веб-интерфейс для Remedy ITSM.</p><p id="c54cfb9d-78e8-44e1-8aba-6979ea4f3b3c" class=""><mark class="highlight-default">Я разработала дизайн для MVP, включающий: реестр инцидентов и задач, карточки инцидентов и задач, а также основные функции работы с ними — выполнение, переназначение, запрос дополнительной информации и создание массового инцидента на основе единичных.</mark></p><p id="1183c4f5-7da8-8037-b59b-d6acc43cee02" class="">
+</p></li></ol><ol type="1" id="d2f68204-6574-4d8c-a5b1-e7239738029c" class="numbered-list" start="6"><li><code>Система по созданию и настройке правил подписки на различные типы уведомлений от систем </code><code><strong>Notification Platform</strong></code><p id="2713eb90-0f4d-4c68-adbf-5c4dbfce9caf" class="">Система дает возможность управлять потоком уведомлений в свой адрес,</p><p id="8dac5ad9-74ca-4657-9cee-1b90fa8747b2" class="">генерируемых внутренними платформами и системами.</p><p id="e2f79e91-d7d9-463f-adab-7c4342337178" class="">Основные функции:</p><ul id="189da22c-0072-4b50-8687-4e318e39e463" class="bulleted-list"><li style="list-style-type:disc">просмотр текущих уведомлений от систем</li></ul><ul id="4fbecd6b-ae42-4512-adf8-a44041f39d15" class="bulleted-list"><li style="list-style-type:disc">настройка уведомлений</li></ul><ul id="065cbc7c-a50b-4f7e-b4ae-4fff9661d796" class="bulleted-list"><li style="list-style-type:disc">добавление и редактирование фильтров оповещения</li></ul><ul id="5bfb459f-51ef-4e07-8a43-40b2d2c2ba44" class="bulleted-list"><li style="list-style-type:disc">согласование подписки на уведомления</li></ul><p id="2755c89f-96a7-45ce-94d6-4ed0d210fb38" class=""><mark class="highlight-default">Мной был разработан User Flow и экраны интерфейса, а также шаблоны писем</mark></p></li></ol><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1183c4f5-7da8-80d6-9fba-d145928328d7"><div style="font-size:1.5em"><span class="icon">💻</span></div><div style="width:100%"><p id="9ebffec0-bb27-42dd-a3b9-caf50b7f413f" class=""><mark class="highlight-default">Стек: </mark>Figma, Useberry, Miro, FigJam, Confluence, Jira</p></div></figure><p id="1183c4f5-7da8-806a-ba0b-e3f3ac9f9203" class="">
+</p><p id="3069e026-d6b0-496e-bdec-3adb74aa26d6" class="">UX-исследования в проектах:</p><ul id="25c2b546-e99c-4247-9558-8ef761d0c5b2" class="bulleted-list"><li style="list-style-type:disc">коридорки</li></ul><ul id="6b0b894a-30ba-41e7-8f8a-892813dbea04" class="bulleted-list"><li style="list-style-type:disc">сбор и анализ обратной связи от пользователей (почта) и метрик (kibana) с помощью аналитика</li></ul><ul id="f01c0c9f-a976-474a-896c-d575c6b3b566" class="bulleted-list"><li style="list-style-type:disc">проведение демо и сбор комментариев</li></ul><ul id="20d03adc-2577-46d6-b726-01a77e6a08b8" class="bulleted-list"><li style="list-style-type:disc">исследования на фокус-группах</li></ul><ul id="a8315840-e273-4f1f-8082-7f26ac35f159" class="bulleted-list"><li style="list-style-type:disc">ux-тесты (изначально в figma, сейчас useberry)</li></ul><p id="4ce78427-72c8-4b60-88f9-f396c66159b9" class="">Построение CJM, Userflow в Miro (FigJam)</p><p id="d5565817-f27c-48ac-925c-dc96a4caff4a" class="">Таблички с результатами UX-тестов</p><p id="1085f8b9-bd65-4082-9219-14148ce96c6a" class="">Расшифровки интервью (таблички с проблемами, инсайтами, гипотезами)</p></details></li></ul><ul id="1f556b44-106c-4405-a335-28547d37098e" class="toggle"><li><details open=""><summary><code>Дизайнер продукта</code> НирХаб, стартап: сервис-посредник для поиска команд, которые могут проводить НИР, НИОКР и прочие исследовательские работы. <a href="https://nirhub.ru/">https://nirhub.ru/</a></summary><p id="c5abc7c8-c07a-4159-bf29-337c6da06e56" class="">Создание дизайна с нуля и разработка концепции</p><ul id="c0342ae9-9af2-4e90-8b8f-f88465b75500" class="bulleted-list"><li style="list-style-type:disc">Анализ рынка и выявление инсайтов</li></ul><ul id="94ece807-3419-4887-b54d-1d7072bba71a" class="bulleted-list"><li style="list-style-type:disc">Исследование потенциальных пользователей и создание сценариев их взаимодействия с платформой</li></ul><ul id="85ebc2eb-d0f1-40f1-942d-143f816662fa" class="bulleted-list"><li style="list-style-type:disc">Описание функциональности и проработка информационной структуры (экраны и переходы между ними)</li></ul><ul id="5534b616-0adc-4172-b0ff-648c75908891" class="bulleted-list"><li style="list-style-type:disc">Прототипирование в Figma</li></ul><ul id="1a8db518-14d4-4278-974e-be2f39787dde" class="bulleted-list"><li style="list-style-type:disc">Разработка адаптивного дизайна лендинга и основных экранов для мобильной и десктопной версий</li></ul><ul id="1183c4f5-7da8-8053-9348-c0c84538c1ad" class="bulleted-list"><li style="list-style-type:disc">Проект в Behance</li></ul><figure id="1183c4f5-7da8-8031-a331-d030f0d54be3"><a href="https://www.behance.net/gallery/71986399/nirhub-project" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">nirhub project</div></div><div class="bookmark-href"><img src="https://a5.behance.net/64a4658b34f2aaa2a87e06fcd8fcd6b38038bca2/img/site/apple-touch-icon.png?cb=264615658" class="icon bookmark-icon"/>https://www.behance.net/gallery/71986399/nirhub-project</div></div><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d0012d71986399.5d78ee87c6f45.png" class="bookmark-image"/></a></figure><ul id="c28cd045-411a-442a-b42e-047f6eabf248" class="toggle"><li><details open=""><summary>Описание проекта<br/>Идея новой онлайн-платформы — не дублировать существующие грантовые распределения денег (для этого есть уже сложившиеся структуры), а занять нишу небольших научных проектов с быстрой реализацией и конкретным результатом, заказанным не государством или фондом, а конечным потребителем, которому нужно решение этой задачи.<br/></summary><p id="1183c4f5-7da8-805f-be56-f072a1679de0" class=""><strong>НирХаб</strong> — это сервис-посредник для поиска команд, способных проводить НИР, НИОКР и прочие исследовательские работы.<br/><br/><strong>Цель проекта:</strong> упростить для компаний поиск исполнителей экспертиз, НИР, НИОКР и т.д., а для групп учёных — оптимизировать процесс поиска заказчика.<br/>Проект функционирует на рынке труда, являясь конкурентом традиционного офлайн-поиска заказчиков и исполнителей в научной сфере.<br/></p><p id="1183c4f5-7da8-8053-8c75-ec0ae1e93fa6" class="">На российском рынке у проекта пока нет прямых онлайн-конкурентов. Косвенные конкуренты, о которых будет сказано ниже, не являются специализированными площадками для таких запросов. Существуют онлайн-реестры учёных, но они предназначены для получения грантов.<br/>Создаваемая площадка призвана помочь технологичным компаниям и предпринимателям решать наукоёмкие задачи, проводить научную экспертизу, организовывать мозговые штурмы, заказывать научно-популярные статьи или решать другие вопросы, требующие знаний учёных.<br/></p><p id="1183c4f5-7da8-801e-985a-f4bab72b4947" class="">Площадка позволит упростить поиск учёных с необходимыми знаниями и опытом, организовать обсуждение и сопровождение исследований для решения конкретных наукоёмких задач. Заказчик поэтапно оплачивает исследования и получает желаемый результат. Учёный или группа учёных решает поставленную задачу и получает соответствующее вознаграждение согласно заключённому договору. Успешно решённые и оплаченные задачи формируют историю и рейтинг как заказчика, так и учёного.</p><p id="1183c4f5-7da8-800b-8429-c1901e1ef490" class="">Сервис позволяет регистрироваться как целым компаниям, проводящим НИОКР, так и отдельным учёным. Подробно описывается опыт их работы, а также оценка этих работ и рейтинг. Благодаря большому количеству необходимых фильтров заказчик сможет выбрать наиболее подходящих кандидатов из всего реестра исполнителей, что значительно сокращает время на поиски подрядчиков.</p></details></li></ul><p id="1183c4f5-7da8-8024-bc4a-f55fb2ef886c" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1183c4f5-7da8-80d4-b607-e63fb0c9d28f"><div style="font-size:1.5em"><span class="icon">💻</span></div><div style="width:100%"><p id="60d49eca-77e3-43bc-bcb5-ca537a2fe0f4" class=""><mark class="highlight-default">Стек: </mark>Figma, VScode, Github</p></div></figure><p id="1183c4f5-7da8-80d9-8985-dc6933a9dea9" class="">
+</p></details></li></ul><ul id="4b26f2ce-01d6-4c0d-b821-09d1471588c9" class="toggle"><li><details open=""><summary><code>Дизайнер</code><strong> </strong>Музыкальный фестиваль «Cultural Intelligence», сайт-визитка <a href="http://cifest.ru.tilda.ws/">http://cifest.ru.tilda.ws/</a></summary><ul id="70b727bb-28f1-4fc4-a31c-1617875c13a4" class="bulleted-list"><li style="list-style-type:disc">Создание сайта-визитки для музыкального фестиваля</li></ul><ul id="a1faebef-e8c0-44db-856c-fbc6328b577e" class="bulleted-list"><li style="list-style-type:disc">Разработка предыдущей версии сайта с использованием конструктора Mobirise (<a href="http://www.cifest.ru/">http://www.cifest.ru/</a>)</li></ul><ul id="e650a22b-3e42-485c-ab80-8b650b0f95b1" class="bulleted-list"><li style="list-style-type:disc">Создание обновлённой версии сайта на платформе Tilda</li></ul><ul id="3a411a6c-690b-470c-90b4-b241a87531d1" class="bulleted-list"><li style="list-style-type:disc">Дизайн афиш для новой версии сайта</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1183c4f5-7da8-805f-9960-e2f7d5db84b5"><div style="font-size:1.5em"><span class="icon">💻</span></div><div style="width:100%"><p id="fa726e96-07c6-4000-8bab-6eeaaa8063ac" class=""><mark class="highlight-default">Стек: </mark>Figma, Adobe Illustrator, Adobe Photoshop, WinSCP, Tilda</p></div></figure><p id="1183c4f5-7da8-80d9-8520-ebbc505ddb1c" class="">
+</p></details></li></ul><ul id="8b7a6022-f7a2-4afe-ac1f-35c9229e5ee7" class="toggle"><li><details open=""><summary><code>Контент-менеджер</code> ООО «Лессон Хоум», сайт для репетиторов </summary><ul id="52661a13-9f0b-4f42-8e0b-de8272897d26" class="bulleted-list"><li style="list-style-type:disc">SEO: Создание семантического ядра и контента для главной и посадочных страниц с учётом ключевых фраз. Использовала сервис Яндекс.Вордстат, в Excel фильтровала запросы на целевые, околоцелевые и нецелевые, затем применяла их в Яндекс.Директе</li></ul><ul id="0cf27b05-c152-4a0e-b71e-96f4b1d9ef0d" class="bulleted-list"><li style="list-style-type:disc">UX: Исследование целевой аудитории, создание персонажей, описание пользовательских сценариев</li></ul><ul id="6181a3da-3f10-46a2-ae93-1cc7a4b4ebf0" class="bulleted-list"><li style="list-style-type:disc">Также в ООО «Лессон Хоум» я проходила преддипломную практику. В ходе неё я описывала бизнес-процессы компании и предложила решения по их оптимизации. Компании были предоставлены:</li></ul><p id="07062770-8fe4-4ba3-8cfc-05a9ed56e451" class="">Диаграммы бизнес-процессов в нотациях IDEF0, IDEF3 (CASE-средство All Fusion BPWin), «AS IS» и «TO BE».</p><p id="86525fc6-358f-4a77-8c18-ff922feadfa3" class="">Диаграммы бизнес-процессов в нотациях ARIS VAD, ARIS eEPC (CASE-средство ARIS Express), «AS IS» и «TO BE».</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1183c4f5-7da8-80b4-80db-e01a80216784"><div style="font-size:1.5em"><span class="icon">💻</span></div><div style="width:100%"><p id="92966124-9032-4b51-a0b1-546586c8b6ad" class=""><mark class="highlight-default">Стек: </mark>All Fusion BPWin, ARIS Express, Яндекс Вордстат, Google Trends, Excel</p></div></figure><p id="1183c4f5-7da8-80e7-b230-c065185bd17d" class="">
+</p></details></li></ul><ul id="928e1071-d1f7-40d3-a488-c5a76460f54d" class="toggle"><li><details open=""><summary><code>Веб-мастер</code> Учебный центр «Азъ» при Государственном Университете Управления, сайт и курсы для школьников <a href="http://turnir.guu.ru/">http://turnir.guu.ru/</a>, <a href="https://az.guu.ru/">https://az.guu.ru/</a></summary><p id="1183c4f5-7da8-80ca-aa4a-f712ec90ff39" class="">Обязанности:</p><ul id="1183c4f5-7da8-8005-aca3-f906dfc1ceea" class="bulleted-list"><li style="list-style-type:disc">проектирование и создание новых страниц сайта</li></ul><ul id="1183c4f5-7da8-80c1-98a1-e625fa2d27a0" class="bulleted-list"><li style="list-style-type:disc">создание статичных и анимированных баннеров</li></ul><ul id="1183c4f5-7da8-80cc-8edd-d2d32f70cb84" class="bulleted-list"><li style="list-style-type:disc">вёрстка полиграфической продукции (буклеты, сертификаты и пр.)</li></ul><ul id="1183c4f5-7da8-80b4-8a18-f9383bc57437" class="bulleted-list"><li style="list-style-type:disc">вёрстка учебных пособий</li></ul><ul id="1183c4f5-7da8-8021-93a7-cd7bd913ffaa" class="bulleted-list"><li style="list-style-type:disc">подготовка презентаций</li></ul><ul id="1183c4f5-7da8-8067-a004-c9d76364153e" class="bulleted-list"><li style="list-style-type:disc">администрирование сайта, работа с базами данных</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1183c4f5-7da8-8061-979f-ef953b2c126b"><div style="font-size:1.5em"><span class="icon">💻</span></div><div style="width:100%"><p id="ebea7868-dcac-4594-913d-54aa64b52614" class=""><mark class="highlight-default">Стек: Adobe Photoshop, Figma, Яндекс Метрика, phpStorm, Gitlab, MySQL, Filezilla</mark></p></div></figure><p id="1183c4f5-7da8-80ef-ba0c-ec5022789862" class="">
+</p></details></li></ul><p id="224c1842-46bd-47c1-8152-8bf1d1cb4295" class="">
+</p></details></li></ul><ul id="34599fa7-7ee7-484b-a88c-f00a27330820" class="toggle"><li><details open=""><summary>Примеры работ</summary><div id="dbedcfa2-d83a-44a1-848f-b295bc674b7f" class="collection-content"><h4 class="collection-title">Примеры работ</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Text</th></tr></thead><tbody><tr id="c1cf7bff-a6ba-49ef-8f98-44b07bd4325c"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%20dbedcfa2d83a44a1848fb295bc674b7f/Notification%20Platform%20c1cf7bffa6ba49ef8f9844b07bd4325c.html">Notification Platform</a></td><td class="cell-UbTg"><time>@May 15, 2023 6:32 PM</time></td><td class="cell-OjkG"></td><td class="cell-~]h@"></td></tr><tr id="ac569878-2ede-40b7-a93b-d283b0adaed8"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%20dbedcfa2d83a44a1848fb295bc674b7f/Intranet%20App%20ac5698782ede40b7a93bd283b0adaed8.html">Intranet App</a></td><td class="cell-UbTg"><time>@May 15, 2023 6:32 PM</time></td><td class="cell-OjkG"></td><td class="cell-~]h@">Мобильное приложение для сотрудников</td></tr><tr id="cfb8f2d2-9ed3-432a-8604-8e9b96298167"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%20dbedcfa2d83a44a1848fb295bc674b7f/Smart%20ITSM%20cfb8f2d29ed3432a86048e9b96298167.html">Smart ITSM</a></td><td class="cell-UbTg"><time>@May 15, 2023 6:32 PM</time></td><td class="cell-OjkG"></td><td class="cell-~]h@"></td></tr><tr id="d810e054-5b12-4ea0-a602-7117014c3961"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%20dbedcfa2d83a44a1848fb295bc674b7f/%D0%9A%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%B0%20EDT%20d810e0545b124ea0a6027117014c3961.html">Концепт для продукта EDT</a></td><td class="cell-UbTg"><time>@May 22, 2023 9:07 PM</time></td><td class="cell-OjkG"></td><td class="cell-~]h@"></td></tr><tr id="102cbea5-485b-4895-8a73-73b6734622d6"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%20dbedcfa2d83a44a1848fb295bc674b7f/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D0%90%D0%B2%D0%B8%D1%82%D0%BE%20%D0%9D%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20102cbea5485b48958a7373b6734622d6.html">Тестовое для Авито Недвижимость</a></td><td class="cell-UbTg"><time>@May 22, 2023 9:09 PM</time></td><td class="cell-OjkG"><span class="selected-value select-value-color-purple">веб</span><span class="selected-value select-value-color-brown">концепт</span><span class="selected-value select-value-color-pink">мобилка</span></td><td class="cell-~]h@"></td></tr><tr id="385f3c29-c24e-4b2d-9138-39d7493b4835"><td class="cell-title"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%20dbedcfa2d83a44a1848fb295bc674b7f/%D0%A5%D0%B0%D0%BA%D0%B0%D1%82%D0%BE%D0%BD%20385f3c29c24e4b2d913839d7493b4835.html">Хакатон</a></td><td class="cell-UbTg"><time>@May 24, 2023 6:16 AM</time></td><td class="cell-OjkG"><span class="selected-value select-value-color-purple">веб</span><span class="selected-value select-value-color-brown">концепт</span></td><td class="cell-~]h@"></td></tr></tbody></table><br/><br/></div></details></li></ul><ul id="65e82900-8b2f-4e4f-90f8-6523d29ba51b" class="toggle"><li><details open=""><summary><strong>Образование</strong></summary><p id="065dd6ed-591c-41c8-ba56-d552941ff749" class="">
+</p><p id="35cf9b94-405a-415d-8891-e9024c2b7566" class=""><code>Университет</code></p><table id="99817c42-f373-472a-b2e4-84806ea75dd3" class="simple-table"><tbody><tr id="00f1fbc9-c4cf-4725-b573-480b13d0f891"><td id="gZiA" class="">Государственный университет управления</td><td id=";m\&lt;" class="" style="width:336px">Информационный менеджмент, бакалавриат</td><td id="}LGH" class="">2012-2016</td></tr><tr id="bbf56ff4-27f9-443c-bd08-1c09c38283a6"><td id="gZiA" class="">Государственный университет управления</td><td id=";m\&lt;" class="" style="width:336px">Технологическое предпринимательство/Акселерация IT-стартапов, магистратура</td><td id="}LGH" class="">2016-2018</td></tr></tbody></table><p id="65944ecd-405d-4d15-a8b1-39d40a57c1f8" class=""><code>Курсы</code></p><table id="42e9e325-6123-4779-a211-82185c552cac" class="simple-table"><tbody><tr id="06678e3f-878b-4352-8a4a-f1f8c7b5b373"><td id="b&lt;mj" class="" style="width:203px">МФТИ &amp; Mail.ru Group<br/>Coursera<br/></td><td id="OwgO" class="" style="width:335.2734375px">Дизайнер интерфейсов. Введение в специальность</td><td id="wO@{" class="">2017</td><td id="{Jee" class=""></td></tr><tr id="14a605fa-49fe-42f2-a9a7-1f49d4c07b32"><td id="b&lt;mj" class="" style="width:203px">Высшая школа экономики (ВШЭ)</td><td id="OwgO" class="" style="width:335.2734375px"><a href="https://product.hsbi.ru/ux-research">UX-исследователь</a><br/><br/><a href="https://disk.yandex.ru/i/-wUGZmbW1t0Pmw">Исследование</a> </td><td id="wO@{" class="">февраль — май, 2021 </td><td id="{Jee" class=""></td></tr><tr id="1a8e68ee-0f5e-4662-8775-ec69463a010d"><td id="b&lt;mj" class="" style="width:203px">Британская высшая школа дизайна</td><td id="OwgO" class="" style="width:335.2734375px"><a href="https://britishdesign.ru/courses/data-driven-solutions/">Как принимать решения на основе данных</a></td><td id="wO@{" class="">июль, 2022</td><td id="{Jee" class=""></td></tr><tr id="d2538d17-82ab-479c-b038-2b803328d45d"><td id="b&lt;mj" class="" style="width:203px">BBE, Cаша Ермоленко</td><td id="OwgO" class="" style="width:335.2734375px"><a href="https://bangbangeducation.ru/course/art-direction">Арт-дирекшн цифровых продуктов</a></td><td id="wO@{" class="">май 2023 — июль 2023</td><td id="{Jee" class=""></td></tr></tbody></table><p id="00d71d00-6467-4fb7-a7b6-8611ac5ea1d4" class=""><code>Книжки</code></p><p id="b26680ac-341c-4051-9bf0-35bf2b907473" class="">Иногда читаю, чаще конечно статьи</p><figure id="4466de25-ce5c-4b4d-8f1b-0157b82d275a" class="image"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/books.png"><img style="width:680px" src="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/books.png"/></a></figure></details></li></ul><ul id="26aef178-2368-4923-b65c-cef510a19d35" class="toggle"><li><details open=""><summary><strong>Прочая деятельность</strong></summary><p id="81018ef6-3d06-43e2-8d10-1c1322a535d4" class="">Дизайн-выходные в Нижнем Новгороде в 2024 году с лекцией про ценность и задачи дизайнера для техлидов и продактов<br/><br/><a href="https://t.me/bukhenity/473">Презентация</a></p><figure id="ba563f55-6bb7-48f2-b23d-34e987812dfe" class="image"><a href="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/Untitled.heic"><img src="%D0%94%D1%83%D0%B4%D0%BA%D0%BE%20%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20942911480e1a4bcdae8d2c543e8e7d25/Untitled.heic"/></a></figure><p id="31e7c982-027c-4d25-9c57-a6222016718a" class="">
+</p><p id="dc6ce5d5-ea44-4755-ab56-ab9b13e0b2fd" class="">Дизайн-выходные в Суздале в 2023 году с лекцией про сборку и проведение UX-тестов <a href="https://disk.yandex.ru/d/VwclTXqlQi28YQ">Презентация</a></p><figure id="65a77e38-aa19-4cdf-90cf-2137c51bdbcc"><div class="source"><a href="https://youtu.be/k15tQWuvT5E">https://youtu.be/k15tQWuvT5E</a></div></figure><p id="fd39a609-814d-424a-912d-80e2c5993b32" class="">
+</p><p id="a3503992-74c5-4dbf-858d-4f9500bc55d5" class="">Веду подкаст про дизайнерские штучки (ютуб+я.музыка)</p><figure id="2b8eeed7-65fe-4476-8081-61fbbbad2f41"><div class="source"><a href="https://youtu.be/oezGncM30gc">https://youtu.be/oezGncM30gc</a></div></figure><p id="740c00b8-f226-4879-8b04-6dfd0e19037a" class="">
+</p></details></li></ul><p id="c3024fd3-d868-45c2-a0b6-dabc5439d497" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
