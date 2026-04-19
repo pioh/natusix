@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дудко Наталья — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f0f0ec;
+    --bg2: #e4e4df;
+    --bg3: #d8d8d2;
+    --text: #0f0f0d;
+    --text-muted: #6b6b65;
+    --accent: #c9f135;
+    --accent-text: #0f0f0d;
+    --border: #c8c8c0;
+    --font: 'JetBrains Mono', monospace;
+    --nav-h: 60px;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0f0f0d;
+    --bg2: #1c1c19;
+    --bg3: #2a2a26;
+    --text: #f0f0ec;
+    --text-muted: #888880;
+    --border: #2e2e2a;
+  }
+
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+    padding: 0 40px;
+    z-index: 100;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .nav-logo {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+    flex: 1;
+  }
+
+  .nav-links {
+    display: flex; gap: 4px; align-items: center;
+  }
+
+  .nav-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--font); font-size: 12px;
+    color: var(--text-muted);
+    padding: 6px 12px; border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .nav-btn:hover { color: var(--text); background: var(--bg2); }
+  .nav-btn.active { color: var(--text); background: var(--accent); color: var(--accent-text); }
+
+  .nav-controls {
+    display: flex; gap: 8px; align-items: center; margin-left: 24px;
+  }
+
+  .lang-toggle, .theme-toggle {
+    background: none; border: 1px solid var(--border); cursor: pointer;
+    font-family: var(--font); font-size: 11px;
+    color: var(--text-muted); padding: 5px 10px; border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .lang-toggle:hover, .theme-toggle:hover {
+    color: var(--text); border-color: var(--text);
+  }
+
+  /* PAGE */
+  .page {
+    margin-top: var(--nav-h);
+    min-height: calc(100vh - var(--nav-h));
+    padding: 60px 40px 80px;
+    max-width: 1100px;
+    margin-left: auto; margin-right: auto;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .anim { animation: fadeUp 0.5s ease both; }
+  .anim-d1 { animation-delay: 0.05s; }
+  .anim-d2 { animation-delay: 0.12s; }
+  .anim-d3 { animation-delay: 0.19s; }
+  .anim-d4 { animation-delay: 0.26s; }
+  .anim-d5 { animation-delay: 0.33s; }
+  .anim-d6 { animation-delay: 0.40s; }
+  .anim-d7 { animation-delay: 0.47s; }
+  .anim-d8 { animation-delay: 0.54s; }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    background: var(--accent); color: var(--accent-text);
+    font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px; border-radius: 100px;
+  }
+  .tag-outline {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  /* SECTION HEADER */
+  .section-label {
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-label::before { content: '//  '; }
+
+  /* HERO */
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: start;
+    margin-bottom: 80px;
+  }
+  .hero-index {
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 0.1em; margin-bottom: 24px;
+    display: flex; gap: 12px; align-items: center;
+  }
+  .hero-index::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .hero-name {
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 700; line-height: 1.05;
+    letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .hero-name em { font-style: normal; color: var(--text-muted); font-weight: 300; }
+  .hero-desc {
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+    max-width: 400px;
+  }
+  .hero-stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; margin-top: 32px;
+  }
+  .hero-stat {
+    background: var(--bg2); padding: 20px 24px;
+  }
+  .hero-stat-num {
+    font-size: 36px; font-weight: 700; line-height: 1;
+    letter-spacing: -0.03em; margin-bottom: 4px;
+  }
+  .hero-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .hero-right {
+    padding-top: 60px;
+  }
+  .hero-img-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    aspect-ratio: 3/4; display: flex;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; color: var(--text-muted);
+    font-size: 11px; text-align: center; padding: 20px;
+    position: relative;
+  }
+  .hero-img-box::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 6px,
+      var(--bg3) 6px,
+      var(--bg3) 7px
+    );
+    opacity: 0.4;
+  }
+  .hero-img-label {
+    position: relative; z-index: 1;
+    background: var(--bg2); padding: 8px 14px; border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  /* CARDS GRID */
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden;
+  }
+  .cards-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+  .proj-card {
+    background: var(--bg);
+    padding: 28px; cursor: pointer;
+    transition: background 0.2s;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .proj-card:hover { background: var(--bg2); }
+
+  .proj-card-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .proj-num { font-size: 11px; color: var(--text-muted); }
+  .proj-title { font-size: 15px; font-weight: 600; line-height: 1.3; }
+  .proj-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+  .proj-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; padding-top: 4px; }
+
+  .proj-img {
+    background: var(--bg3);
+    border-radius: 8px; height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--text-muted); text-align: center;
+    overflow: hidden; position: relative;
+    border: 1px solid var(--border);
+  }
+  .proj-img-inner {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 8px,
+      var(--bg2) 8px, var(--bg2) 9px
+    );
+    opacity: 0.5;
+  }
+  .proj-img span { position: relative; z-index: 1; background: var(--bg3); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); }
+
+  .arrow { font-size: 16px; color: var(--text-muted); transition: transform 0.2s, color 0.2s; }
+  .proj-card:hover .arrow { transform: translate(2px, -2px); color: var(--text); }
+
+  /* ═══ FILING CABINET ═══ */
+  .file-cabinet-wrap {
+    background: #111110;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+    border: 1px solid #2a2a22;
+  }
+
+  .folder-tabs-row {
+    display: flex;
+    padding: 28px 32px 0;
+    gap: 3px;
+    background: #0a0a08;
+    border-bottom: none;
+  }
+
+  .folder-tab-btn {
+    background: #1e1e18;
+    border: 1px solid #2e2e26;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    padding: 14px 22px 16px;
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #50504a;
+    cursor: pointer;
+    transition: all 0.25s;
+    min-width: 0;
+    flex: 1;
+    text-align: left;
+    position: relative;
+  }
+  .folder-tab-btn:hover { color: #888878; background: #252520; }
+  .folder-tab-btn.active {
+    background: #f0ece0;
+    color: #1a1610;
+    border-color: #c8c0a8;
+    z-index: 2;
+  }
+  .folder-tab-num {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+    color: #35302a;
+    opacity: 0.3;
+    transition: opacity 0.25s;
+  }
+  .folder-tab-btn.active .folder-tab-num { color: #1a1610; opacity: 1; }
+  .folder-tab-btn:hover .folder-tab-num { opacity: 0.6; }
+
+  .folder-drawer {
+    background:
+      repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(255,255,255,0.015) 48px, rgba(255,255,255,0.015) 49px),
+      repeating-linear-gradient(0deg, transparent, transparent 48px, rgba(255,255,255,0.015) 48px, rgba(255,255,255,0.015) 49px),
+      #1a1a16;
+    border-top: 2px solid #323228;
+    padding: 36px 32px 32px;
+    min-height: 440px;
+  }
+
+  .papers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+
+  .paper-card {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"),
+      #f8f8f6;
+    background-blend-mode: multiply;
+    border: 1px solid #dddbd5;
+    border-radius: 1px;
+    box-shadow:
+      inset 0 0 12px rgba(0,0,0,0.04),
+      3px 3px 0 #d8d6d0, 6px 6px 0 #ccc9c2,
+      0 14px 36px rgba(0,0,0,0.55);
+    cursor: pointer;
+    transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s;
+    overflow: hidden;
+    position: relative;
+  }
+  .paper-card:nth-child(1) { transform: rotate(-0.4deg); }
+  .paper-card:nth-child(2) { transform: rotate( 0.6deg); }
+  .paper-card:nth-child(3) { transform: rotate(-0.3deg); }
+  .paper-card:nth-child(4) { transform: rotate( 0.5deg); }
+  .paper-card:hover {
+    transform: translateY(-14px) rotate(-1deg) !important;
+    box-shadow: 3px 3px 0 #ccc4a8, 6px 6px 0 #bdb598, 0 32px 60px rgba(0,0,0,0.65);
+    z-index: 10;
+  }
+
+  @keyframes paperDrop {
+    from { opacity:0; transform: translateY(-20px) rotate(var(--r,0deg)); }
+    to   { opacity:1; transform: translateY(0)     rotate(var(--r,0deg)); }
+  }
+  .paper-card { animation: paperDrop 0.35s ease both; }
+  .paper-card:nth-child(1) { animation-delay: 0.04s; --r: -0.4deg; }
+  .paper-card:nth-child(2) { animation-delay: 0.10s; --r:  0.6deg; }
+  .paper-card:nth-child(3) { animation-delay: 0.16s; --r: -0.3deg; }
+  .paper-card:nth-child(4) { animation-delay: 0.22s; --r:  0.5deg; }
+
+  .paper-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(
+      transparent, transparent 23px,
+      rgba(0,0,0,0.06) 23px, rgba(0,0,0,0.06) 24px
+    );
+    opacity: 1;
+  }
+  .paper-card::after {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(0,0,0,0.07) 0%, transparent 25%),
+      radial-gradient(circle at 100% 100%, rgba(0,0,0,0.06) 0%, transparent 25%);
+    border-radius: 1px;
+  }
+  .paper-header {
+    padding: 14px 14px 10px;
+    border-bottom: 2px solid #1a1610;
+    position: relative; z-index: 1;
+  }
+  .paper-meta-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 6px;
+  }
+  .paper-num {
+    font-size: 9px; font-family: var(--font); font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; color: #8a8070;
+  }
+  .paper-stamp {
+    font-size: 9px; font-family: var(--font); font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #1a1610;
+    border: 1.5px solid #1a1610; padding: 1px 6px; border-radius: 2px;
+  }
+  .paper-title {
+    font-family: var(--font); font-size: 13px; font-weight: 700;
+    color: #1a1610; line-height: 1.25;
+  }
+  .paper-img-area {
+    height: 90px;
+    background: #e8e8e6;
+    border-bottom: 1px solid #dddbd5;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .paper-img-area::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(0,0,0,0.04) 7px, rgba(0,0,0,0.04) 8px);
+  }
+  .paper-img-area span {
+    position: relative; z-index:1;
+    font-family: var(--font); font-size: 9px; color: #8a8070;
+    background: #e8e2ce; padding: 3px 8px; border: 1px solid #d0c8b0;
+  }
+  .paper-body { padding: 10px 14px 14px; position: relative; z-index:1; }
+  .paper-client {
+    font-family: var(--font); font-size: 9px; color: #8a8070;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;
+  }
+  .paper-desc {
+    font-family: var(--font); font-size: 10.5px; color: #3a3020;
+    line-height: 1.55;
+  }
+  .paper-result {
+    margin-top: 9px; padding-top: 8px; border-top: 1px solid #d0c8b0;
+    font-family: var(--font); font-size: 10px; font-weight: 700; color: #1a1610;
+  }
+
+  .drawer-floor {
+    margin-top: 28px; padding-top: 16px;
+    border-top: 1px solid #252520;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .drawer-label {
+    font-size: 10px; color: #38382e; font-family: var(--font);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* PROJECT MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    z-index: 200; display: flex; align-items: flex-end;
+    backdrop-filter: blur(4px);
+  }
+  .modal {
+    background: var(--bg);
+    width: 100%; max-height: 90vh;
+    border-radius: 16px 16px 0 0;
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    overflow-y: auto;
+    animation: slideUp 0.4s ease;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+  .modal-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 32px;
+  }
+  .modal-close {
+    background: var(--bg2); border: 1px solid var(--border);
+    color: var(--text); font-family: var(--font); font-size: 12px;
+    padding: 8px 14px; border-radius: 6px; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: var(--bg3); }
+  .modal-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .modal-body { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .modal-img {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; aspect-ratio: 16/10;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .modal-img-inner {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 10px,
+      var(--bg3) 10px, var(--bg3) 11px
+    );
+    opacity: 0.4;
+  }
+  .modal-img span { position: relative; z-index: 1; font-size: 12px; color: var(--text-muted); background: var(--bg2); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border); }
+  .modal-info { display: flex; flex-direction: column; gap: 20px; }
+  .modal-info-row label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+  .modal-info-row p { font-size: 13px; line-height: 1.7; }
+
+  /* ═══ CLIPBOARD / CV ═══ */
+  .cv-stage {
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 10px 0 40px;
+  }
+  .clipboard-wrap {
+    width: 620px; max-width: 100%;
+    position: relative;
+    filter: drop-shadow(0 24px 70px rgba(0,0,0,0.7));
+  }
+  /* Metal clip SVG holder */
+  .clipboard-clip-area {
+    display: flex; justify-content: center;
+    margin-bottom: -2px; position: relative; z-index: 5;
+  }
+  /* The actual paper */
+  .cv-paper {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"),
+      #f9f9f7;
+    background-blend-mode: multiply;
+    border-radius: 2px 2px 3px 3px;
+    padding: 44px 48px 48px;
+    position: relative; overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.04);
+  }
+  .cv-paper::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(
+      transparent, transparent 27px,
+      rgba(0,0,0,0.05) 27px, rgba(0,0,0,0.05) 28px
+    );
+    opacity: 1; z-index: 0;
+  }
+  .cv-paper::after {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(0,0,0,0.05) 0%, transparent 20%),
+      radial-gradient(circle at 100% 100%, rgba(0,0,0,0.04) 0%, transparent 20%);
+  }
+
+  .cv-top-meta {
+    display: flex; justify-content: space-between;
+    margin-bottom: 28px; position: relative; z-index: 1;
+  }
+  .cv-doc-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #7a7060; line-height: 1.6;
+  }
+  .cv-stamp {
+    border: 2.5px solid rgba(160,50,50,0.55);
+    color: rgba(160,50,50,0.55);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; text-align: center;
+    padding: 7px 10px; border-radius: 2px;
+    transform: rotate(-9deg);
+    line-height: 1.5; flex-shrink: 0;
+  }
+
+  .cv-main-row {
+    display: flex; gap: 32px; margin-bottom: 28px;
+    position: relative; z-index: 1;
+  }
+
+  /* Polaroid photo */
+  .cv-photo-wrap { position: relative; flex-shrink: 0; }
+  .cv-polaroid {
+    background: #fff;
+    padding: 10px 10px 34px 10px;
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.12),
+      0 6px 20px rgba(0,0,0,0.18),
+      inset 0 0 0 1px rgba(0,0,0,0.06);
+    transform: rotate(-1.5deg);
+    position: relative;
+  }
+  .cv-photo {
+    width: 128px; height: 152px;
+    background: #c8c8c8;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .cv-photo::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 40% 35%, rgba(255,255,255,0.15) 0%, transparent 60%),
+      radial-gradient(circle at 0% 0%, rgba(0,0,0,0.25) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(0,0,0,0.20) 0%, transparent 50%),
+      repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(0,0,0,0.03) 4px, rgba(0,0,0,0.03) 5px);
+  }
+  .cv-photo-label {
+    position: relative; z-index: 1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; color: #7a7060; text-align: center;
+    background: #ddd8c8; padding: 4px 10px; border: 1px solid #c0b8a8;
+  }
+  .cv-paperclip {
+    position: absolute; top: -22px; left: 22px; z-index: 10;
+  }
+
+  /* CV fields */
+  .cv-fields { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+  .cv-field {}
+  .cv-field-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #7a7060; margin-bottom: 3px;
+  }
+  .cv-field-line {
+    border-bottom: 1px solid #c0b8a0; padding-bottom: 3px;
+    min-height: 28px; display: flex; align-items: flex-end;
+  }
+  .cv-handwritten {
+    font-family: 'Caveat', cursive;
+    font-size: 21px; color: #1a1610; line-height: 1;
+  }
+  .cv-typed {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: #1a1610; line-height: 1.3;
+  }
+
+  .cv-hr {
+    border: none; border-top: 1px solid #c0b8a0;
+    margin: 20px 0; position: relative; z-index: 1;
+  }
+  .cv-section { position: relative; z-index: 1; margin-bottom: 20px; }
+  .cv-section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #3a3020; margin-bottom: 10px;
+  }
+  .cv-bio-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: #2a2016; line-height: 1.75;
+  }
+  .cv-checkboxes {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px;
+  }
+  .cv-checkbox {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: #2a2016; line-height: 1.3;
+  }
+  .cv-box {
+    width: 13px; height: 13px; flex-shrink: 0;
+    border: 1.5px solid #3a3020;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: #1a1610;
+    font-family: 'Caveat', cursive;
+  }
+  .cv-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* about legacy - no longer used but keep for safety */
+  .about-values { margin-top: 40px; }
+
+  /* SKILLS */
+  .skills-table {
+    width: 100%;
+    border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  }
+  .skills-row {
+    display: grid; grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    transition: background 0.15s;
+  }
+  .skills-row:last-child { border-bottom: none; }
+  .skills-row:hover { background: var(--bg2); }
+  .skills-cat {
+    padding: 18px 24px;
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-muted);
+    border-right: 1px solid var(--border);
+    display: flex; align-items: center;
+  }
+  .skills-list {
+    padding: 18px 24px;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .skill-item {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 5px 12px;
+    font-size: 12px; color: var(--text);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .skill-item:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+
+  .skill-bar-row {
+    margin-top: 40px;
+  }
+  .skill-bar-item { margin-bottom: 16px; }
+  .skill-bar-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12px; }
+  .skill-bar-label { font-weight: 500; }
+  .skill-bar-pct { color: var(--text-muted); }
+  .skill-bar-track {
+    height: 4px; background: var(--bg2); border-radius: 2px; overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%; background: var(--accent); border-radius: 2px;
+    transform-origin: left; animation: barGrow 0.8s ease both;
+  }
+  @keyframes barGrow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .exp-item {
+    background: var(--bg); padding: 28px 32px;
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 32px; transition: background 0.15s;
+  }
+  .exp-item:hover { background: var(--bg2); }
+  .exp-date { font-size: 11px; color: var(--text-muted); padding-top: 3px; }
+  .exp-company { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .exp-role { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+  .exp-desc { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .contact-big { font-size: clamp(24px, 4vw, 48px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 24px; }
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 10px; text-decoration: none; color: var(--text);
+    margin-bottom: 8px; transition: background 0.2s, border-color 0.2s;
+    font-size: 13px;
+  }
+  .contact-link:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+  .contact-link-label { font-size: 11px; color: inherit; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.08em; }
+  .contact-form { display: flex; flex-direction: column; gap: 12px; }
+  .contact-input, .contact-textarea {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px;
+    font-family: var(--font); font-size: 13px; color: var(--text);
+    transition: border-color 0.2s, background 0.2s;
+    resize: none; outline: none;
+  }
+  .contact-input:focus, .contact-textarea:focus {
+    border-color: var(--accent); background: var(--bg);
+  }
+  .contact-input::placeholder, .contact-textarea::placeholder { color: var(--text-muted); }
+  .contact-textarea { height: 120px; }
+  .contact-submit {
+    background: var(--text); color: var(--bg);
+    border: none; border-radius: 8px; padding: 14px 24px;
+    font-family: var(--font); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s, color 0.2s;
+  }
+  .contact-submit:hover { background: var(--accent); color: var(--accent-text); }
+  .submit-ok { color: var(--accent); font-size: 13px; padding: 10px 0; }
+
+  /* TWEAKS PANEL */
+  .tweaks-panel {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+    width: 240px; z-index: 300;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    display: none;
+  }
+  .tweaks-panel.open { display: block; }
+  .tweaks-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; color: var(--text-muted); }
+  .tweaks-row { margin-bottom: 14px; }
+  .tweaks-label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .tweaks-swatches { display: flex; gap: 8px; }
+  .swatch {
+    width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+    border: 2px solid transparent; transition: border-color 0.2s;
+  }
+  .swatch.active { border-color: var(--text); }
+  .tweaks-select {
+    width: 100%; background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 8px 10px;
+    font-family: var(--font); font-size: 12px; color: var(--text);
+    outline: none; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const T = {
+  ru: {
+    nav: { projects: 'Проекты', about: 'О себе', skills: 'Навыки', exp: 'Опыт', contact: 'Контакты' },
+    hero: {
+      status: 'Доступна для работы',
+      role: 'Product Designer',
+      desc: 'Проектирую цифровые продукты, которые сочетают\nстрогую логику и эстетику. 5+ лет в B2B и consumer.',
+      stats: [
+        { num: '9+', label: 'Лет опыта' },
+        { num: '3', label: 'Компании' },
+        { num: '∞', label: 'Итераций' },
+        { num: 'B2', label: 'English' },
+      ],
+      photo: 'фото'
+    },
+    projects: {
+      title: 'Проекты',
+      sub: 'Выбранные работы',
+      items: [
+        { id: 1, title: 'Design System', client: 'Fintech платформа', year: '2024', tags: ['DS', 'Figma', 'B2B'], desc: 'Дизайн-система с 200+ компонентами для финтех-платформы. Сократила время разработки фич на 40%.', role: 'Lead Designer', result: '−40% dev time', img: 'mockup — design system' },
+        { id: 2, title: 'Онбординг', client: 'SaaS продукт', year: '2024', tags: ['UX', 'Research', 'B2B'], desc: 'Переработка онбординга нового пользователя. Конверсия в активацию выросла с 34% до 61%.', role: 'UX Designer', result: '+27% activation', img: 'mockup — onboarding flow' },
+        { id: 3, title: 'Mobile App', client: 'E-commerce', year: '2023', tags: ['Mobile', 'iOS', 'Research'], desc: 'iOS-приложение для маркетплейса. 4.8★ в AppStore после запуска.', role: 'Product Designer', result: '4.8★ AppStore', img: 'mockup — mobile app' },
+        { id: 4, title: 'Dashboard', client: 'Analytics SaaS', year: '2023', tags: ['Data Viz', 'B2B', 'Figma'], desc: 'Аналитический дашборд для HR-платформы. Реализовала 14 типов визуализации.', role: 'Product Designer', result: '14 chart types', img: 'mockup — dashboard' },
+        { id: 5, title: 'Redesign', client: 'Corporate site', year: '2022', tags: ['Web', 'Motion', 'Brand'], desc: 'Редизайн корпоративного сайта. Средняя сессия выросла с 1:20 до 3:45.', role: 'UI Designer', result: '+180% session time', img: 'mockup — website' },
+        { id: 6, title: 'CRM Flow', client: 'Logistics', year: '2022', tags: ['UX', 'B2B', 'Complex'], desc: 'UX для CRM логистической компании. 200+ экранов, 12 ролей пользователей.', role: 'UX Lead', result: '200+ screens', img: 'mockup — CRM' },
+      ]
+    },
+    about: {
+      title: 'О себе',
+      sub: 'Знакомство',
+      p1: '<strong>Я — Наталья Дудко</strong>, продуктовый дизайнер с фокусом на сложных B2B-интерфейсах и дизайн-системах. Работаю на стыке пользовательского исследования, системного мышления и визуального языка.',
+      p2: 'Начинала карьеру в веб-студии, прошла через стартапы и корпоративный продукт. Умею объяснять дизайн-решения через данные и работать в кросс-функциональных командах.',
+      p3: 'Вне работы — читаю о когнитивных науках, снимаю на плёнку и провожу воркшопы по UX для джунов.',
+      values: ['Системное мышление', 'Data-driven решения', 'Документация', 'Кросс-функц. коллаборация'],
+      edu: 'НИУ ВШЭ, Коммуникационный дизайн, 2019'
+    },
+    skills: {
+      title: 'Навыки',
+      sub: 'Технический стек',
+      categories: [
+        { cat: 'Дизайн', items: ['Figma', 'Sketch', 'Principle', 'Protopie', 'Framer'] },
+        { cat: 'Исследование', items: ['User Interviews', 'Usability Testing', 'Survey', 'A/B тест', 'Jobs-to-be-done'] },
+        { cat: 'Система', items: ['Design Tokens', 'Component Library', 'Documentation', 'Storybook'] },
+        { cat: 'Смежные', items: ['HTML/CSS', 'SQL (basic)', 'Miro', 'Notion', 'Jira', 'Confluence'] },
+      ],
+      bars: [
+        { label: 'UX-исследования', pct: 95 },
+        { label: 'Прототипирование', pct: 90 },
+        { label: 'Дизайн-системы', pct: 88 },
+        { label: 'Визуальный дизайн', pct: 82 },
+        { label: 'Анимация / Motion', pct: 70 },
+      ]
+    },
+    exp: {
+      title: 'Опыт',
+      sub: 'Карьерный путь',
+      items: [
+        { date: 'Апр 2023 — Июл 2025', company: 'МТС', role: 'Руководитель направления дизайна внутренних продуктов', desc: 'Найм дизайнеров и дизайн-лидов. Формирование UX/UI-стратегии. Сбор и унификация паттернов, утверждение визуальных гайдов. Воркшопы и митапы. Взаимодействие со стейкхолдерами (VP, CPO/CTO). Работа с внешними студиями и аутстафом.' },
+        { date: 'Ноя 2021 — Апр 2023', company: 'МТС', role: 'Дизайн-лид продуктов OpsPlatform', desc: 'Собеседования дизайнеров, оценка тестовых заданий, онбординг. Развитие дизайн-процессов в командах: исследования, ревью, синки. Унификация кастомных компонентов между командами.' },
+        { date: 'Ноя 2019 — Ноя 2021', company: 'МТС', role: 'Старший продуктовый дизайнер', desc: 'Проектирование веб и мобильных продуктов. Глубинные интервью и UX-тесты. Userflow, макеты, прототипы. Разработка кастомных компонентов по дизайн-системе. Ревью вёрстки.' },
+        { date: 'Окт 2014 — Июн 2018', company: 'ГУУ / НирХаб', role: 'Web-программист / UX-UI дизайнер', desc: 'Разработка структуры сайтов и макетов. UX-концепции стартапа: user stories, wireframes. Рекламные материалы в Photoshop. MySQL, GitLab, PhpStorm.' },
+      ]
+    },
+    contact: {
+      title: 'Контакты',
+      sub: 'Напишите мне',
+      cta: 'Готова к\nновым проектам.',
+      links: [
+        { label: 'Email', val: 'natabuch94@yandex.ru', href: 'mailto:natabuch94@yandex.ru' },
+        { label: 'Telegram', val: '@bukhtenko', href: 'https://t.me/bukhtenko' },
+        { label: 'Портфолио', val: 'notion.site/portfolio', href: 'https://diamond-rice-a79.notion.site/2ac3c4f57da880769cb7e14735f9e512' },
+        { label: 'Телефон', val: '+7 (967) 064-51-01', href: 'tel:+79670645101' },
+      ],
+      form: { name: 'Имя', email: 'Email', msg: 'Сообщение', btn: 'Отправить', ok: 'Отправлено! Свяжусь в течение дня.' }
+    },
+  },
+  en: {
+    nav: { projects: 'Projects', about: 'About', skills: 'Skills', exp: 'Experience', contact: 'Contact' },
+    hero: {
+      status: 'Open to work',
+      role: 'Product Designer',
+      desc: 'I design digital products that blend\nrigorous logic with refined aesthetics. 5+ years in B2B and consumer.',
+      stats: [
+        { num: '9+', label: 'Years exp.' },
+        { num: '3', label: 'Companies' },
+        { num: '∞', label: 'Iterations' },
+        { num: 'B2', label: 'English' },
+      ],
+      photo: 'photo'
+    },
+    projects: {
+      title: 'Projects',
+      sub: 'Selected works',
+      items: [
+        { id: 1, title: 'Design System', client: 'Fintech Platform', year: '2024', tags: ['DS', 'Figma', 'B2B'], desc: 'Design system with 200+ components for a fintech platform. Reduced feature dev time by 40%.', role: 'Lead Designer', result: '−40% dev time', img: 'mockup — design system' },
+        { id: 2, title: 'Onboarding', client: 'SaaS Product', year: '2024', tags: ['UX', 'Research', 'B2B'], desc: 'Redesigned new user onboarding. Activation rate grew from 34% to 61%.', role: 'UX Designer', result: '+27% activation', img: 'mockup — onboarding flow' },
+        { id: 3, title: 'Mobile App', client: 'E-commerce', year: '2023', tags: ['Mobile', 'iOS', 'Research'], desc: 'iOS app for a marketplace. 4.8★ on AppStore post-launch.', role: 'Product Designer', result: '4.8★ AppStore', img: 'mockup — mobile app' },
+        { id: 4, title: 'Dashboard', client: 'Analytics SaaS', year: '2023', tags: ['Data Viz', 'B2B', 'Figma'], desc: 'Analytics dashboard for an HR platform. Implemented 14 chart types.', role: 'Product Designer', result: '14 chart types', img: 'mockup — dashboard' },
+        { id: 5, title: 'Redesign', client: 'Corporate site', year: '2022', tags: ['Web', 'Motion', 'Brand'], desc: 'Corporate site redesign. Avg. session grew from 1:20 to 3:45.', role: 'UI Designer', result: '+180% session time', img: 'mockup — website' },
+        { id: 6, title: 'CRM Flow', client: 'Logistics', year: '2022', tags: ['UX', 'B2B', 'Complex'], desc: 'UX for logistics CRM. 200+ screens, 12 user roles.', role: 'UX Lead', result: '200+ screens', img: 'mockup — CRM' },
+      ]
+    },
+    about: {
+      title: 'About',
+      sub: 'Introduction',
+      p1: '<strong>I\'m Natalia Dudko</strong>, a product designer focused on complex B2B interfaces and design systems. I work at the intersection of user research, systems thinking, and visual language.',
+      p2: 'Started my career at a web agency, moved through startups and corporate product teams. I explain design decisions through data and thrive in cross-functional teams.',
+      p3: 'Outside of work — reading on cognitive science, shooting on film, and running UX workshops for juniors.',
+      values: ['Systems thinking', 'Data-driven decisions', 'Documentation', 'Cross-func. collaboration'],
+      edu: 'HSE University, Communication Design, 2019'
+    },
+    skills: {
+      title: 'Skills',
+      sub: 'Tech stack',
+      categories: [
+        { cat: 'Design', items: ['Figma', 'Sketch', 'Principle', 'Protopie', 'Framer'] },
+        { cat: 'Research', items: ['User Interviews', 'Usability Testing', 'Survey', 'A/B Test', 'Jobs-to-be-done'] },
+        { cat: 'Systems', items: ['Design Tokens', 'Component Library', 'Documentation', 'Storybook'] },
+        { cat: 'Adjacent', items: ['HTML/CSS', 'SQL (basic)', 'Miro', 'Notion', 'Jira', 'Confluence'] },
+      ],
+      bars: [
+        { label: 'UX Research', pct: 95 },
+        { label: 'Prototyping', pct: 90 },
+        { label: 'Design Systems', pct: 88 },
+        { label: 'Visual Design', pct: 82 },
+        { label: 'Animation / Motion', pct: 70 },
+      ]
+    },
+    exp: {
+      title: 'Experience',
+      sub: 'Career path',
+      items: [
+        { date: 'Apr 2023 — Jul 2025', company: 'MTS', role: 'Head of Internal Products Design', desc: 'Hiring designers and design leads. Forming UX/UI strategy. Collecting and unifying patterns, approving visual guidelines. Workshops and meetups. Stakeholder interaction (VP, CPO/CTO). Working with external studios and outstaffing.' },
+        { date: 'Nov 2021 — Apr 2023', company: 'MTS', role: 'Design Lead, OpsPlatform Products', desc: 'Designer interviews, test task evaluation, onboarding. Developing design processes: research, reviews, syncs. Unifying custom components across teams.' },
+        { date: 'Nov 2019 — Nov 2021', company: 'MTS', role: 'Senior Product Designer', desc: 'Designing web and mobile products. Deep user interviews and UX tests. Userflows, mockups, prototypes. Custom components within the design system. Layout review.' },
+        { date: 'Oct 2014 — Jun 2018', company: 'GUU / NirHub', role: 'Web Developer / UX-UI Designer', desc: 'Website structure and mockup development. UX concept for a startup: user stories, wireframes. Marketing materials in Photoshop. MySQL, GitLab, PhpStorm.' },
+      ]
+    },
+    contact: {
+      title: 'Contact',
+      sub: 'Get in touch',
+      cta: 'Open to new\nprojects.',
+      links: [
+        { label: 'Email', val: 'natabuch94@yandex.ru', href: 'mailto:natabuch94@yandex.ru' },
+        { label: 'Telegram', val: '@bukhtenko', href: 'https://t.me/bukhtenko' },
+        { label: 'Portfolio', val: 'notion.site/portfolio', href: 'https://diamond-rice-a79.notion.site/2ac3c4f57da880769cb7e14735f9e512' },
+        { label: 'Phone', val: '+7 (967) 064-51-01', href: 'tel:+79670645101' },
+      ],
+      form: { name: 'Name', email: 'Email', msg: 'Message', btn: 'Send', ok: 'Sent! I\'ll be in touch within the day.' }
+    },
+  }
+};
+
+const ACCENTS = [
+  { color: '#c9f135', name: 'Lime' },
+  { color: '#35f1c9', name: 'Teal' },
+  { color: '#f1a835', name: 'Amber' },
+  { color: '#f135a8', name: 'Pink' },
+  { color: '#a8f135', name: 'Green' },
+];
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "#35f1c9",
+  "theme": "dark",
+  "lang": "ru"
+}/*EDITMODE-END*/;
+
+function applyTheme(theme, accent) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document.documentElement.style.setProperty('--accent', accent);
+  // compute luminance for accent text
+  const r = parseInt(accent.slice(1,3),16)/255;
+  const g = parseInt(accent.slice(3,5),16)/255;
+  const b = parseInt(accent.slice(5,7),16)/255;
+  const lum = 0.299*r + 0.587*g + 0.114*b;
+  document.documentElement.style.setProperty('--accent-text', lum > 0.5 ? '#0f0f0d' : '#f0f0ec');
+}
+
+function PlaceholderImg({ label, style }) {
+  return (
+    <div className="proj-img" style={style}>
+      <div className="proj-img-inner" />
+      <span>{label}</span>
+    </div>
+  );
+}
+
+function ProjectModal({ project, onClose, lang }) {
+  const t = T[lang].projects;
+  const p = project;
+  useEffect(() => {
+    const handler = e => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, []);
+  return (
+    <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="modal">
+        <div className="modal-header">
+          <div>
+            <div style={{display:'flex', gap:8, marginBottom:12}}>
+              {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
+            </div>
+            <div className="modal-title">{p.title}</div>
+            <div style={{fontSize:12, color:'var(--text-muted)', marginTop:4}}>{p.client} / {p.year}</div>
+          </div>
+          <button className="modal-close" onClick={onClose}>✕ Close</button>
+        </div>
+        <div className="modal-body">
+          <div className="modal-img">
+            <div className="modal-img-inner" />
+            <span>{p.img}</span>
+          </div>
+          <div className="modal-info">
+            <div className="modal-info-row">
+              <label>Description</label>
+              <p>{p.desc}</p>
+            </div>
+            <div className="modal-info-row">
+              <label>Role</label>
+              <p>{p.role}</p>
+            </div>
+            <div className="modal-info-row">
+              <label>Result</label>
+              <p style={{color:'var(--accent)', fontWeight:600}}>{p.result}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const FOLDERS = {
+  ru: [
+    { label: 'UX Research', num: '01', papers: [
+      { title: 'Пользовательские интервью', client: 'Fintech SaaS', year: '2024', tags: ['Research','B2B'], desc: '40+ интервью, карта потребностей, 3 перераб. флоу.', result: '+27% activation', img: 'interview notes', role: 'UX Researcher' },
+      { title: 'Тестирование юзабилити', client: 'E-commerce', year: '2024', tags: ['Testing','Mobile'], desc: 'Модерируемое тестирование на 20 респондентах.', result: '−35% task time', img: 'usability session', role: 'UX Researcher' },
+      { title: 'JTBD-исследование', client: 'B2B SaaS', year: '2023', tags: ['JTBD','Strategy'], desc: 'Сегментация аудитории по JTBD-фреймворку.', result: '5 user segments', img: 'JTBD map', role: 'Lead Researcher' },
+      { title: 'Аудит продукта', client: 'Logistics CRM', year: '2023', tags: ['Audit','Heuristics'], desc: 'Эвристический анализ 200+ экранов CRM.', result: '87 issues found', img: 'audit report', role: 'UX Analyst' },
+    ]},
+    { label: 'Design Systems', num: '02', papers: [
+      { title: 'Финтех Design System', client: 'Fintech Platform', year: '2024', tags: ['DS','Figma','B2B'], desc: 'Дизайн-система с 200+ компонентами для платформы.', result: '−40% dev time', img: 'component library', role: 'Lead Designer' },
+      { title: 'Токены и темизация', client: 'SaaS Product', year: '2023', tags: ['Tokens','CSS'], desc: 'Система токенов под тёмную и светлую тему.', result: '3 themes', img: 'design tokens', role: 'DS Designer' },
+      { title: 'Иконочная библиотека', client: 'Internal Tool', year: '2023', tags: ['Icons','SVG'], desc: '480 иконок в едином стиле, SVG/React-экспорт.', result: '480 icons', img: 'icon set', role: 'Icon Designer' },
+      { title: 'Storybook-документация', client: 'Dev Team', year: '2022', tags: ['Storybook','Docs'], desc: 'Задокументировала 80 компонентов в Storybook.', result: '80 components', img: 'storybook', role: 'DS Designer' },
+    ]},
+    { label: 'Mobile', num: '03', papers: [
+      { title: 'iOS Marketplace', client: 'E-commerce', year: '2023', tags: ['Mobile','iOS'], desc: 'Приложение маркетплейса. 4.8★ в AppStore.', result: '4.8★ AppStore', img: 'iOS mockup', role: 'Product Designer' },
+      { title: 'Онбординг приложения', client: 'FinApp', year: '2023', tags: ['Onboarding','Mobile'], desc: 'Переработка онбординга. Конверсия +34%.', result: '+34% conversion', img: 'onboarding screens', role: 'UX Designer' },
+      { title: 'Push-уведомления', client: 'Retail App', year: '2022', tags: ['Mobile','Growth'], desc: 'Стратегия и дизайн push-коммуникаций.', result: '+18% retention', img: 'push notifications', role: 'Product Designer' },
+      { title: 'Адаптация под мобайл', client: 'Corporate', year: '2022', tags: ['Responsive','Mobile'], desc: 'Мобильная адаптация десктопного продукта.', result: '100% coverage', img: 'responsive design', role: 'UI Designer' },
+    ]},
+    { label: 'Web & Brand', num: '04', papers: [
+      { title: 'Корпоративный редизайн', client: 'Corporate site', year: '2022', tags: ['Web','Brand'], desc: 'Редизайн сайта. Сессия: 1:20 → 3:45.', result: '+180% session', img: 'website mockup', role: 'UI Designer' },
+      { title: 'Лендинг для запуска', client: 'Startup', year: '2023', tags: ['Landing','CRO'], desc: 'Конверсионный лендинг для Product Hunt.', result: '#3 Product of Day', img: 'landing page', role: 'Product Designer' },
+      { title: 'Брендбук', client: 'B2B Agency', year: '2022', tags: ['Brand','Identity'], desc: 'Визуальная идентика, логотип, цветовая система.', result: 'Full brand kit', img: 'brand book', role: 'Brand Designer' },
+      { title: 'Email-кампания', client: 'SaaS', year: '2021', tags: ['Email','Marketing'], desc: 'Серия онбординг-писем. Open rate +22%.', result: '+22% open rate', img: 'email templates', role: 'UI Designer' },
+    ]},
+    { label: 'Motion & Proto', num: '05', papers: [
+      { title: 'Интерактивный прототип', client: 'B2B Dashboard', year: '2024', tags: ['Prototype','Framer'], desc: 'Hi-fi прототип для инвестиционного питча.', result: '€2M raised', img: 'prototype demo', role: 'Product Designer' },
+      { title: 'Micro-interactions', client: 'Consumer App', year: '2023', tags: ['Motion','Principle'], desc: 'Система микровзаимодействий на 60fps.', result: '60fps animations', img: 'micro-interactions', role: 'Motion Designer' },
+      { title: 'Анимация онбординга', client: 'FinApp', year: '2023', tags: ['Animation','Lottie'], desc: 'Lottie-анимации для онбординг-экранов.', result: '12 animations', img: 'lottie files', role: 'Motion Designer' },
+      { title: 'Презентация продукта', client: 'Sales Team', year: '2022', tags: ['Presentation','Keynote'], desc: 'Интерактивная презентация для сейлз-команды.', result: '+30% deal close', img: 'sales deck', role: 'Designer' },
+    ]},
+  ],
+  en: [
+    { label: 'UX Research', num: '01', papers: [
+      { title: 'User Interviews', client: 'Fintech SaaS', year: '2024', tags: ['Research','B2B'], desc: '40+ interviews, needs map, 3 redesigned flows.', result: '+27% activation', img: 'interview notes', role: 'UX Researcher' },
+      { title: 'Usability Testing', client: 'E-commerce', year: '2024', tags: ['Testing','Mobile'], desc: 'Moderated testing with 20 participants.', result: '−35% task time', img: 'usability session', role: 'UX Researcher' },
+      { title: 'JTBD Research', client: 'B2B SaaS', year: '2023', tags: ['JTBD','Strategy'], desc: 'Audience segmentation via JTBD framework.', result: '5 user segments', img: 'JTBD map', role: 'Lead Researcher' },
+      { title: 'Product Audit', client: 'Logistics CRM', year: '2023', tags: ['Audit','Heuristics'], desc: 'Heuristic analysis of 200+ CRM screens.', result: '87 issues found', img: 'audit report', role: 'UX Analyst' },
+    ]},
+    { label: 'Design Systems', num: '02', papers: [
+      { title: 'Fintech Design System', client: 'Fintech Platform', year: '2024', tags: ['DS','Figma','B2B'], desc: 'Design system with 200+ components for the platform.', result: '−40% dev time', img: 'component library', role: 'Lead Designer' },
+      { title: 'Tokens & Theming', client: 'SaaS Product', year: '2023', tags: ['Tokens','CSS'], desc: 'Token system for dark and light themes.', result: '3 themes', img: 'design tokens', role: 'DS Designer' },
+      { title: 'Icon Library', client: 'Internal Tool', year: '2023', tags: ['Icons','SVG'], desc: '480 icons in a unified style, SVG/React export.', result: '480 icons', img: 'icon set', role: 'Icon Designer' },
+      { title: 'Storybook Docs', client: 'Dev Team', year: '2022', tags: ['Storybook','Docs'], desc: 'Documented 80 components in Storybook.', result: '80 components', img: 'storybook', role: 'DS Designer' },
+    ]},
+    { label: 'Mobile', num: '03', papers: [
+      { title: 'iOS Marketplace', client: 'E-commerce', year: '2023', tags: ['Mobile','iOS'], desc: 'Marketplace app. 4.8★ on AppStore.', result: '4.8★ AppStore', img: 'iOS mockup', role: 'Product Designer' },
+      { title: 'App Onboarding', client: 'FinApp', year: '2023', tags: ['Onboarding','Mobile'], desc: 'Onboarding redesign. Conversion +34%.', result: '+34% conversion', img: 'onboarding screens', role: 'UX Designer' },
+      { title: 'Push Notifications', client: 'Retail App', year: '2022', tags: ['Mobile','Growth'], desc: 'Push communication strategy and design.', result: '+18% retention', img: 'push notifications', role: 'Product Designer' },
+      { title: 'Web Adaptation', client: 'Corporate', year: '2022', tags: ['Responsive','Mobile'], desc: 'Mobile adaptation of desktop product.', result: '100% coverage', img: 'responsive design', role: 'UI Designer' },
+    ]},
+    { label: 'Web & Brand', num: '04', papers: [
+      { title: 'Corporate Redesign', client: 'Corporate site', year: '2022', tags: ['Web','Brand'], desc: 'Site redesign. Session time: 1:20 → 3:45.', result: '+180% session', img: 'website mockup', role: 'UI Designer' },
+      { title: 'Launch Landing', client: 'Startup', year: '2023', tags: ['Landing','CRO'], desc: 'Conversion landing for Product Hunt.', result: '#3 Product of Day', img: 'landing page', role: 'Product Designer' },
+      { title: 'Brand Book', client: 'B2B Agency', year: '2022', tags: ['Brand','Identity'], desc: 'Visual identity, logo, color system.', result: 'Full brand kit', img: 'brand book', role: 'Brand Designer' },
+      { title: 'Email Campaign', client: 'SaaS', year: '2021', tags: ['Email','Marketing'], desc: 'Onboarding email series. Open rate +22%.', result: '+22% open rate', img: 'email templates', role: 'UI Designer' },
+    ]},
+    { label: 'Motion & Proto', num: '05', papers: [
+      { title: 'Interactive Prototype', client: 'B2B Dashboard', year: '2024', tags: ['Prototype','Framer'], desc: 'Hi-fi prototype for investor pitch.', result: '€2M raised', img: 'prototype demo', role: 'Product Designer' },
+      { title: 'Micro-interactions', client: 'Consumer App', year: '2023', tags: ['Motion','Principle'], desc: 'Micro-interaction system at 60fps.', result: '60fps animations', img: 'micro-interactions', role: 'Motion Designer' },
+      { title: 'Onboarding Animation', client: 'FinApp', year: '2023', tags: ['Animation','Lottie'], desc: 'Lottie animations for onboarding screens.', result: '12 animations', img: 'lottie files', role: 'Motion Designer' },
+      { title: 'Product Presentation', client: 'Sales Team', year: '2022', tags: ['Presentation','Keynote'], desc: 'Interactive presentation for sales team.', result: '+30% deal close', img: 'sales deck', role: 'Designer' },
+    ]},
+  ],
+};
+
+function PageProjects({ lang }) {
+  const [activeFolder, setActiveFolder] = useState(0);
+  const [activePaper, setActivePaper] = useState(null);
+  const [drawerKey, setDrawerKey] = useState(0);
+  const folders = FOLDERS[lang];
+
+  const switchFolder = (i) => {
+    if (i === activeFolder) return;
+    setActiveFolder(i);
+    setDrawerKey(k => k + 1);
+  };
+
+  const t = T[lang];
+
+  return (
+    <div className="page" data-screen-label="Projects">
+      <p className="section-label anim anim-d1">{lang==='ru' ? 'Каталог работ' : 'Work catalog'}</p>
+      <h1 style={{fontSize:'clamp(32px,5vw,56px)', fontWeight:700, letterSpacing:'-0.02em', marginBottom:40}} className="anim anim-d2">
+        {lang==='ru' ? 'Проекты' : 'Projects'}
+      </h1>
+
+      <div className="file-cabinet-wrap anim anim-d3">
+        {/* Folder tabs */}
+        <div className="folder-tabs-row">
+          {folders.map((f, i) => (
+            <button
+              key={i}
+              className={`folder-tab-btn${activeFolder === i ? ' active' : ''}`}
+              onClick={() => switchFolder(i)}
+            >
+              <span className="folder-tab-num">{f.num}</span>
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Drawer with papers */}
+        <div className="folder-drawer" key={drawerKey}>
+          <div className="papers-grid">
+            {folders[activeFolder].papers.map((p, i) => (
+              <div key={i} className="paper-card" onClick={() => setActivePaper({ ...p, id: i })}>
+                <div className="paper-lines" />
+                <div className="paper-header">
+                  <div className="paper-meta-row">
+                    <span className="paper-num">{folders[activeFolder].num}—{String(i+1).padStart(2,'0')}</span>
+                    <span className="paper-stamp">{p.year}</span>
+                  </div>
+                  <div className="paper-title">{p.title}</div>
+                </div>
+                <div className="paper-img-area">
+                  <span>{p.img}</span>
+                </div>
+                <div className="paper-body">
+                  <div className="paper-client">{p.client}</div>
+                  <div className="paper-desc">{p.desc}</div>
+                  <div className="paper-result">→ {p.result}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="drawer-floor">
+            <span className="drawer-label">
+              {lang==='ru' ? 'Папка' : 'Folder'}: {folders[activeFolder].label}
+            </span>
+            <span className="drawer-label">
+              {folders[activeFolder].papers.length} {lang==='ru' ? 'документа' : 'documents'}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {activePaper && (
+        <ProjectModal project={activePaper} onClose={() => setActivePaper(null)} lang={lang} />
+      )}
+    </div>
+  );
+}
+
+/* Realistic Paperclip SVG — layered strokes for 3D wire illusion */
+function PaperclipSVG() {
+  const d = "M18 6 C11 6, 5 12, 5 19 L5 54 C5 61, 10 67, 17 67 C24 67, 29 61, 29 54 L29 21 C29 17, 26 13, 21 13 C16 13, 13 17, 13 21 L13 51 C13 54, 15 56, 18 56 C21 56, 23 54, 23 51 L23 23";
+  return (
+    <svg className="cv-paperclip" width="38" height="76" viewBox="0 0 38 76" fill="none" style={{filter:'drop-shadow(2px 4px 4px rgba(0,0,0,0.32))'}}>
+      <defs>
+        <linearGradient id="pcSheen" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stopColor="#606060"/>
+          <stop offset="28%"  stopColor="#d8d8d8"/>
+          <stop offset="50%"  stopColor="#f0f0f0"/>
+          <stop offset="72%"  stopColor="#c0c0c0"/>
+          <stop offset="100%" stopColor="#707070"/>
+        </linearGradient>
+      </defs>
+      {/* Shadow layer */}
+      <path d={d} stroke="rgba(0,0,0,0.22)" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(1.5,2)"/>
+      {/* Dark outer edge */}
+      <path d={d} stroke="#555" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Mid silver */}
+      <path d={d} stroke="#c8c8c8" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Bright centre highlight */}
+      <path d={d} stroke="#f4f4f4" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Micro specular dot */}
+      <path d={d} stroke="white" strokeWidth="0.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
+    </svg>
+  );
+}
+
+/* Realistic Clipboard Spring Clip */
+function ClipboardClip() {
+  return (
+    <svg width="150" height="60" viewBox="0 0 150 60" fill="none" style={{filter:'drop-shadow(0 6px 10px rgba(0,0,0,0.45))'}}>
+      <defs>
+        <linearGradient id="cBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="#e8e8e4"/>
+          <stop offset="12%"  stopColor="#d0d0ca"/>
+          <stop offset="35%"  stopColor="#a8a8a2"/>
+          <stop offset="55%"  stopColor="#b8b8b2"/>
+          <stop offset="78%"  stopColor="#d4d4ce"/>
+          <stop offset="100%" stopColor="#909090"/>
+        </linearGradient>
+        <linearGradient id="cSpring" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="#e0e0dc"/>
+          <stop offset="30%"  stopColor="#b0b0aa"/>
+          <stop offset="60%"  stopColor="#888884"/>
+          <stop offset="100%" stopColor="#c0c0bc"/>
+        </linearGradient>
+        <linearGradient id="cHighlight" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="rgba(255,255,255,0.55)"/>
+          <stop offset="100%" stopColor="rgba(255,255,255,0)"/>
+        </linearGradient>
+        <linearGradient id="cScrew" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%"   stopColor="#c0c0bc"/>
+          <stop offset="50%"  stopColor="#606060"/>
+          <stop offset="100%" stopColor="#a0a0a0"/>
+        </linearGradient>
+        <filter id="cInner">
+          <feGaussianBlur stdDeviation="1.2"/>
+        </filter>
+      </defs>
+
+      {/* Spring box — top centre */}
+      <rect x="48" y="1" width="54" height="28" rx="6" fill="url(#cSpring)"/>
+      {/* Spring coil lines */}
+      {[7,11,15,19,23].map(y => (
+        <line key={y} x1="52" y1={y} x2="98" y2={y}
+          stroke="rgba(0,0,0,0.18)" strokeWidth="1"/>
+      ))}
+      {/* Spring top highlight */}
+      <rect x="52" y="3" width="46" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+      {/* Spring bottom shadow */}
+      <rect x="50" y="23" width="50" height="4" rx="2" fill="rgba(0,0,0,0.15)"/>
+
+      {/* Main clip bar */}
+      <rect x="5" y="22" width="140" height="32" rx="7" fill="url(#cBody)"/>
+      {/* Top edge shine */}
+      <rect x="7" y="23" width="136" height="7" rx="5" fill="url(#cHighlight)"/>
+      {/* Bottom edge shadow */}
+      <rect x="7" y="48" width="136" height="4" rx="3" fill="rgba(0,0,0,0.18)"/>
+      {/* Side edge darks */}
+      <rect x="5"   y="24" width="4" height="28" rx="2" fill="rgba(0,0,0,0.12)"/>
+      <rect x="141" y="24" width="4" height="28" rx="2" fill="rgba(0,0,0,0.12)"/>
+
+      {/* Left rivet */}
+      <circle cx="26" cy="38" r="7" fill="url(#cScrew)"/>
+      <circle cx="26" cy="38" r="5" fill="#707070"/>
+      <circle cx="26" cy="38" r="3" fill="#888884"/>
+      <line x1="22" y1="38" x2="30" y2="38" stroke="#a0a0a0" strokeWidth="1.2"/>
+      <line x1="26" y1="34" x2="26" y2="42" stroke="#a0a0a0" strokeWidth="1.2"/>
+      <circle cx="25" cy="37" r="1" fill="rgba(255,255,255,0.4)"/>
+
+      {/* Right rivet */}
+      <circle cx="124" cy="38" r="7" fill="url(#cScrew)"/>
+      <circle cx="124" cy="38" r="5" fill="#707070"/>
+      <circle cx="124" cy="38" r="3" fill="#888884"/>
+      <line x1="120" y1="38" x2="128" y2="38" stroke="#a0a0a0" strokeWidth="1.2"/>
+      <line x1="124" y1="34" x2="124" y2="42" stroke="#a0a0a0" strokeWidth="1.2"/>
+      <circle cx="123" cy="37" r="1" fill="rgba(255,255,255,0.4)"/>
+    </svg>
+  );
+}
+
+function PageAbout({ lang }) {
+  const t = T[lang].about;
+  const checks = lang === 'ru'
+    ? ['DesignOps','Управление командой','UX-исследования','Дизайн-системы','Прототипирование','Atomic Design','Figma / Illustrator','Scrum / Agile']
+    : ['DesignOps','Team Management','UX Research','Design Systems','Prototyping','Atomic Design','Figma / Illustrator','Scrum / Agile'];
+
+  const bio = lang === 'ru'
+    ? 'Руковожу дизайном внутренних продуктов в МТС — нанимаю дизайнеров,\nстрою процессы, формирую UX/UI-стратегию. 9+ лет в дизайне,\nот верстки и Photoshop до DesignOps и управления командами.\nИнтересуюсь урбанистикой, играю в теннис, леплю из глины.'
+    : 'I lead internal product design at MTS — hire designers,\nbuild processes, form UX/UI strategy. 9+ years in design,\nfrom web development and Photoshop to DesignOps and team leadership.\nInterested in urbanism, play tennis, work with clay.';
+
+  return (
+    <div className="page" data-screen-label="About">
+      <p className="section-label anim anim-d1">{lang==='ru' ? 'Досье' : 'Dossier'}</p>
+      <h1 style={{fontSize:'clamp(28px,4vw,48px)', fontWeight:700, letterSpacing:'-0.02em', marginBottom:36}} className="anim anim-d2">
+        {lang==='ru' ? 'О себе' : 'About'}
+      </h1>
+
+      <div className="cv-stage anim anim-d3">
+        <div className="clipboard-wrap">
+          {/* Metal clip */}
+          <div className="clipboard-clip-area"><ClipboardClip/></div>
+
+          {/* Paper */}
+          <div className="cv-paper">
+            {/* Top meta row */}
+            <div className="cv-top-meta">
+              <div className="cv-doc-id">
+                {lang==='ru' ? 'CURRICULUM VITAE' : 'CURRICULUM VITAE'}<br/>
+                {lang==='ru' ? 'ДОСЬЕ №001 / 2024' : 'DOSSIER №001 / 2024'}
+              </div>
+              <div className="cv-stamp">
+                {lang==='ru' ? 'ОТКРЫТА\nДЛЯ\nПРЕДЛОЖЕНИЙ' : 'OPEN\nTO\nWORK'}
+              </div>
+            </div>
+
+            {/* Main: photo + fields */}
+            <div className="cv-main-row">
+              <div className="cv-photo-wrap">
+                <PaperclipSVG/>
+                <div className="cv-polaroid">
+                  <div className="cv-photo">
+                    <span className="cv-photo-label" style={{position:'relative',zIndex:1,fontFamily:"'JetBrains Mono',monospace",fontSize:9,color:'#888',textAlign:'center',background:'rgba(200,200,200,0.7)',padding:'3px 8px',border:'1px solid rgba(0,0,0,0.1)'}}>{lang==='ru' ? 'фото 3×4' : 'photo 3×4'}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="cv-fields">
+                <div className="cv-field">
+                  <div className="cv-field-label">{lang==='ru' ? 'Фамилия и имя' : 'Full name'}</div>
+                  <div className="cv-field-line"><span className="cv-handwritten">Дудко Наталья</span></div>
+                </div>
+                <div className="cv-field">
+                  <div className="cv-field-label">{lang==='ru' ? 'Специализация' : 'Role'}</div>
+                  <div className="cv-field-line"><span className="cv-handwritten">DesignOps / Design Manager</span></div>
+                </div>
+                <div className="cv-two-col">
+                  <div className="cv-field">
+                    <div className="cv-field-label">{lang==='ru' ? 'Опыт' : 'Experience'}</div>
+                    <div className="cv-field-line"><span className="cv-handwritten">9+ лет</span></div>
+                  </div>
+                  <div className="cv-field">
+                    <div className="cv-field-label">{lang==='ru' ? 'Город' : 'Location'}</div>
+                    <div className="cv-field-line"><span className="cv-handwritten">Москва</span></div>
+                  </div>
+                </div>
+                <div className="cv-field">
+                  <div className="cv-field-label">{lang==='ru' ? 'Контакт' : 'Contact'}</div>
+                  <div className="cv-field-line"><span className="cv-typed">@bukhtenko · natabuch94@yandex.ru</span></div>
+                </div>
+                <div className="cv-field">
+                  <div className="cv-field-label">{lang==='ru' ? 'Образование' : 'Education'}</div>
+                  <div className="cv-field-line"><span className="cv-typed">{lang==='ru' ? 'ГУУ, Магистр, Техн. предпринимательство, 2018' : 'GUU, Master\'s, Tech Entrepreneurship, 2018'}</span></div>
+                </div>
+              </div>
+            </div>
+
+            <hr className="cv-hr"/>
+
+            {/* Bio */}
+            <div className="cv-section">
+              <div className="cv-section-title">{lang==='ru' ? 'О себе' : 'Summary'}</div>
+              <div className="cv-bio-text">{bio.split('\n').map((l,i)=><span key={i}>{l}<br/></span>)}</div>
+            </div>
+
+            <hr className="cv-hr"/>
+
+            {/* Competencies */}
+            <div className="cv-section">
+              <div className="cv-section-title">{lang==='ru' ? 'Компетенции' : 'Competencies'}</div>
+              <div className="cv-checkboxes">
+                {checks.map((c,i) => (
+                  <div key={i} className="cv-checkbox">
+                    <div className="cv-box">✗</div>
+                    {c}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <hr className="cv-hr"/>
+
+            {/* Signature */}
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', position:'relative', zIndex:1}}>
+              <div>
+                <div className="cv-field-label" style={{marginBottom:6}}>{lang==='ru' ? 'Подпись' : 'Signature'}</div>
+                <div style={{fontFamily:"'Caveat', cursive", fontSize:28, color:'#1a1610', borderBottom:'1px solid #c0b8a0', paddingBottom:2, width:180}}>Наталья</div>
+              </div>
+              <div style={{textAlign:'right'}}>
+                <div className="cv-field-label" style={{marginBottom:4}}>{lang==='ru' ? 'Дата' : 'Date'}</div>
+                <div style={{fontFamily:"'Caveat', cursive", fontSize:18, color:'#1a1610'}}>04 / 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PageSkills({ lang }) {
+  const t = T[lang].skills;
+  return (
+    <div className="page" data-screen-label="Skills">
+      <p className="section-label anim anim-d1">{t.sub}</p>
+      <h1 style={{fontSize:'clamp(32px,5vw,56px)', fontWeight:700, letterSpacing:'-0.02em', marginBottom:48}} className="anim anim-d2">{t.title}</h1>
+      <div className="skills-table anim anim-d3">
+        {t.categories.map(row => (
+          <div key={row.cat} className="skills-row">
+            <div className="skills-cat">{row.cat}</div>
+            <div className="skills-list">
+              {row.items.map(item => <span key={item} className="skill-item">{item}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="skill-bar-row anim anim-d4" style={{marginTop:48}}>
+        <div className="section-label" style={{marginBottom:24}}>{lang==='ru' ? 'Самооценка' : 'Self assessment'}</div>
+        {t.bars.map(b => (
+          <div key={b.label} className="skill-bar-item">
+            <div className="skill-bar-header">
+              <span className="skill-bar-label">{b.label}</span>
+              <span className="skill-bar-pct">{b.pct}%</span>
+            </div>
+            <div className="skill-bar-track">
+              <div className="skill-bar-fill" style={{width: b.pct+'%', animationDelay: Math.random()*0.4+'s'}} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PageExp({ lang }) {
+  const t = T[lang].exp;
+  return (
+    <div className="page" data-screen-label="Experience">
+      <p className="section-label anim anim-d1">{t.sub}</p>
+      <h1 style={{fontSize:'clamp(32px,5vw,56px)', fontWeight:700, letterSpacing:'-0.02em', marginBottom:48}} className="anim anim-d2">{t.title}</h1>
+      <div className="exp-list anim anim-d3">
+        {t.items.map((e, i) => (
+          <div key={i} className="exp-item">
+            <div className="exp-date">{e.date}</div>
+            <div>
+              <div className="exp-company">{e.company}</div>
+              <div className="exp-role">{e.role}</div>
+              <div className="exp-desc">{e.desc}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Courses */}
+      <div className="anim anim-d4" style={{marginTop:48}}>
+        <div className="section-label" style={{marginBottom:20}}>{lang==='ru' ? 'Курсы и сертификаты' : 'Courses & certificates'}</div>
+        <div style={{display:'flex', flexDirection:'column', gap:1, background:'var(--border)', borderRadius:12, overflow:'hidden', border:'1px solid var(--border)'}}>
+          {[
+            { year:'2025', name: lang==='ru' ? 'Школа владельцев продуктов (Product Owner)' : 'Product Owner School', org:'МТС' },
+            { year:'2024', name: lang==='ru' ? 'Школа агентов изменений (Scrum Master)' : 'Scrum Master School', org:'МТС' },
+            { year:'2023', name: lang==='ru' ? 'Арт-дирекшн цифровых продуктов' : 'Art Direction for Digital Products', org:'Bang Bang Education' },
+            { year:'2022', name: lang==='ru' ? 'Как принимать решения на основе данных' : 'Data-driven Decision Making', org:'БВШД' },
+            { year:'2021', name: lang==='ru' ? 'UX-исследователь' : 'UX Researcher', org:'НИУ ВШЭ' },
+            { year:'2017', name: lang==='ru' ? 'Дизайнер интерфейсов' : 'Interface Designer', org:'МФТИ & Mail.ru / Coursera' },
+          ].map((c,i) => (
+            <div key={i} style={{background:'var(--bg)', padding:'16px 24px', display:'grid', gridTemplateColumns:'60px 1fr auto', gap:24, alignItems:'center', transition:'background 0.15s'}}
+              onMouseEnter={e=>e.currentTarget.style.background='var(--bg2)'}
+              onMouseLeave={e=>e.currentTarget.style.background='var(--bg)'}>
+              <span style={{fontSize:11, color:'var(--text-muted)', fontWeight:600}}>{c.year}</span>
+              <span style={{fontSize:13}}>{c.name}</span>
+              <span style={{fontSize:11, color:'var(--text-muted)', textAlign:'right'}}>{c.org}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="anim anim-d5" style={{marginTop:24, padding:'28px 32px', background:'var(--bg2)', borderRadius:12, border:'1px solid var(--border)', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+        <div>
+          <div style={{fontSize:11, color:'var(--text-muted)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:6}}>{lang==='ru' ? 'Резюме' : 'CV'}</div>
+          <div style={{fontSize:14, fontWeight:600}}>Dudko_Natalia_CV.pdf</div>
+        </div>
+        <a href="https://diamond-rice-a79.notion.site/2ac3c4f57da880769cb7e14735f9e512" target="_blank" style={{background:'var(--text)', color:'var(--bg)', padding:'12px 20px', borderRadius:8, textDecoration:'none', fontSize:12, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', transition:'background 0.2s'}}
+          onMouseEnter={e=>e.target.style.background='var(--accent)'}
+          onMouseLeave={e=>e.target.style.background='var(--text)'}
+        >{lang==='ru' ? '↗ Портфолио' : '↗ Portfolio'}</a>
+      </div>
+    </div>
+  );
+}
+
+function PageContact({ lang }) {
+  const t = T[lang].contact;
+  const [form, setForm] = useState({name:'', email:'', msg:''});
+  const [sent, setSent] = useState(false);
+  const f = t.form;
+  const submit = e => { e.preventDefault(); setSent(true); };
+  return (
+    <div className="page" data-screen-label="Contact">
+      <p className="section-label anim anim-d1">{t.sub}</p>
+      <h1 style={{fontSize:'clamp(32px,5vw,56px)', fontWeight:700, letterSpacing:'-0.02em', marginBottom:48}} className="anim anim-d2">{t.title}</h1>
+      <div className="contact-grid">
+        <div className="anim anim-d3">
+          <div className="contact-big">{t.cta.split('\n').map((l,i)=><span key={i}>{l}<br/></span>)}</div>
+          {t.links.map(l => (
+            <a key={l.label} href={l.href} className="contact-link">
+              <div>
+                <div className="contact-link-label">{l.label}</div>
+                <div style={{marginTop:2}}>{l.val}</div>
+              </div>
+              <span style={{fontSize:16}}>→</span>
+            </a>
+          ))}
+        </div>
+        <div className="anim anim-d4">
+          {sent ? (
+            <div style={{padding:32, background:'var(--bg2)', borderRadius:12, border:'1px solid var(--border)'}}>
+              <div className="tag" style={{marginBottom:16}}>✓</div>
+              <div style={{fontSize:14}}>{f.ok}</div>
+            </div>
+          ) : (
+            <form className="contact-form" onSubmit={submit}>
+              <input className="contact-input" placeholder={f.name} value={form.name} onChange={e=>setForm({...form,name:e.target.value})} required />
+              <input className="contact-input" type="email" placeholder={f.email} value={form.email} onChange={e=>setForm({...form,email:e.target.value})} required />
+              <textarea className="contact-textarea" placeholder={f.msg} value={form.msg} onChange={e=>setForm({...form,msg:e.target.value})} required />
+              <button type="submit" className="contact-submit">{f.btn} →</button>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PageHome({ lang, goPage }) {
+  const t = T[lang].hero;
+  const tp = T[lang].projects;
+  return (
+    <div className="page" data-screen-label="Home">
+      {/* Hero */}
+      <div className="hero-grid">
+        <div>
+          <div className="hero-index anim anim-d1">
+            <span className="tag">{t.status}</span>
+          </div>
+          <h1 className="hero-name anim anim-d2">
+            Дудко<br/><em>Наталья</em>
+          </h1>
+          <div className="hero-desc anim anim-d3">{t.desc.split('\n').map((l,i)=><span key={i}>{l}<br/></span>)}</div>
+          <div style={{marginTop:32, display:'flex', gap:12}} className="anim anim-d4">
+            <button onClick={() => goPage('projects')} style={{background:'var(--text)', color:'var(--bg)', border:'none', padding:'12px 24px', borderRadius:8, fontFamily:'var(--font)', fontSize:12, fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', cursor:'pointer', transition:'background 0.2s'}}
+              onMouseEnter={e=>e.target.style.background='var(--accent)'}
+              onMouseLeave={e=>e.target.style.background='var(--text)'}
+            >{lang==='ru' ? 'Смотреть проекты' : 'See projects'} →</button>
+            <button onClick={() => goPage('contact')} style={{background:'transparent', color:'var(--text)', border:'1px solid var(--border)', padding:'12px 24px', borderRadius:8, fontFamily:'var(--font)', fontSize:12, cursor:'pointer', transition:'background 0.2s'}}
+              onMouseEnter={e=>e.target.style.background='var(--bg2)'}
+              onMouseLeave={e=>e.target.style.background='transparent'}
+            >{lang==='ru' ? 'Написать' : 'Contact'}</button>
+          </div>
+          <div className="hero-stat-grid anim anim-d5">
+            {t.stats.map(s => (
+              <div key={s.label} className="hero-stat">
+                <div className="hero-stat-num">{s.num}</div>
+                <div className="hero-stat-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="hero-right anim anim-d3">
+          <div className="hero-img-box">
+            <div className="hero-img-label" style={{fontFamily:'var(--font)', fontSize:12, color:'var(--text-muted)', textAlign:'center'}}>
+              portrait photo<br/>{t.role}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Featured projects */}
+      <div className="anim anim-d6">
+        <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:20}}>
+          <p className="section-label">{lang==='ru' ? 'Избранные проекты' : 'Selected projects'}</p>
+          <button onClick={() => goPage('projects')} style={{background:'none', border:'none', cursor:'pointer', fontFamily:'var(--font)', fontSize:12, color:'var(--text-muted)', textDecoration:'underline'}}>{lang==='ru' ? 'Все →' : 'All →'}</button>
+        </div>
+        <div className="cards-grid cards-grid-2">
+          {tp.items.slice(0,2).map((p, i) => (
+            <div key={p.id} className="proj-card" onClick={() => goPage('projects')}>
+              <div className="proj-card-top">
+                <span className="proj-num">0{i+1}</span>
+                <span className="arrow">↗</span>
+              </div>
+              <PlaceholderImg label={p.img} />
+              <div className="proj-title">{p.title}</div>
+              <div className="proj-desc">{p.client} / {p.year}</div>
+              <div className="proj-tags">{p.tags.map(t=><span key={t} className="tag tag-outline">{t}</span>)}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const saved = JSON.parse(localStorage.getItem('portfolio-state') || '{}');
+  const [page, setPage] = useState(saved.page || 'home');
+  const [lang, setLang] = useState(TWEAK_DEFAULTS.lang);
+  const [tweaks, setTweaks] = useState({ ...TWEAK_DEFAULTS });
+  const [tweaksOpen, setTweaksOpen] = useState(false);
+
+  useEffect(() => {
+    applyTheme(tweaks.theme, tweaks.accent);
+  }, [tweaks]);
+
+  useEffect(() => {
+    localStorage.setItem('portfolio-state', JSON.stringify({ page }));
+  }, [page]);
+
+  const goPage = (p) => setPage(p);
+  const t = T[lang];
+
+  // Tweaks message protocol
+  useEffect(() => {
+    const handler = e => {
+      if (e.data?.type === '__activate_edit_mode') setTweaksOpen(true);
+      if (e.data?.type === '__deactivate_edit_mode') setTweaksOpen(false);
+    };
+    window.addEventListener('message', handler);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', handler);
+  }, []);
+
+  const updateTweak = (key, val) => {
+    const next = { ...tweaks, [key]: val };
+    setTweaks(next);
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: val } }, '*');
+  };
+
+  const navPages = ['home', 'projects', 'about', 'skills', 'exp', 'contact'];
+  const navLabels = { home: lang==='ru' ? 'Главная' : 'Home', ...Object.fromEntries([['projects', t.nav.projects], ['about', t.nav.about], ['skills', t.nav.skills], ['exp', t.nav.exp], ['contact', t.nav.contact]]) };
+
+  const pageKey = page + lang; // force re-render for animation
+
+  return (
+    <>
+      <nav>
+        <div className="nav-logo">ND<span style={{color:'var(--text-muted)', fontWeight:400}}> — {t.hero.role}</span></div>
+        <div className="nav-links">
+          {navPages.map(p => (
+            <button key={p} className={`nav-btn${page===p?' active':''}`} onClick={() => goPage(p)}>{navLabels[p]}</button>
+          ))}
+        </div>
+        <div className="nav-controls">
+          <button className="lang-toggle" onClick={() => setLang(l => l==='ru'?'en':'ru')}>{lang==='ru' ? 'EN' : 'RU'}</button>
+          <button className="theme-toggle" onClick={() => updateTweak('theme', tweaks.theme==='light'?'dark':'light')}>{tweaks.theme==='light' ? '◐' : '○'}</button>
+        </div>
+      </nav>
+
+      <div key={pageKey}>
+        {page === 'home' && <PageHome lang={lang} goPage={goPage} />}
+        {page === 'projects' && <PageProjects lang={lang} />}
+        {page === 'about' && <PageAbout lang={lang} />}
+        {page === 'skills' && <PageSkills lang={lang} />}
+        {page === 'exp' && <PageExp lang={lang} />}
+        {page === 'contact' && <PageContact lang={lang} />}
+      </div>
+
+      {/* Tweaks Panel */}
+      <div className={`tweaks-panel${tweaksOpen?' open':''}`}>
+        <div className="tweaks-title">Tweaks</div>
+        <div className="tweaks-row">
+          <div className="tweaks-label">Accent color</div>
+          <div className="tweaks-swatches">
+            {ACCENTS.map(a => (
+              <div key={a.color} className={`swatch${tweaks.accent===a.color?' active':''}`}
+                style={{background: a.color}} onClick={() => updateTweak('accent', a.color)}
+                title={a.name} />
+            ))}
+          </div>
+        </div>
+        <div className="tweaks-row">
+          <div className="tweaks-label">Theme</div>
+          <div style={{display:'flex', gap:8}}>
+            {['light','dark'].map(th => (
+              <button key={th} onClick={() => updateTweak('theme', th)}
+                style={{background: tweaks.theme===th ? 'var(--accent)' : 'var(--bg2)', border:'1px solid var(--border)', borderRadius:6, padding:'6px 14px', fontFamily:'var(--font)', fontSize:12, cursor:'pointer', color:'var(--text)', transition:'background 0.2s'}}>
+                {th}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="tweaks-row">
+          <div className="tweaks-label">Language default</div>
+          <div style={{display:'flex', gap:8}}>
+            {['ru','en'].map(l => (
+              <button key={l} onClick={() => { updateTweak('lang', l); setLang(l); }}
+                style={{background: tweaks.lang===l ? 'var(--accent)' : 'var(--bg2)', border:'1px solid var(--border)', borderRadius:6, padding:'6px 14px', fontFamily:'var(--font)', fontSize:12, cursor:'pointer', color:'var(--text)', transition:'background 0.2s'}}>
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
