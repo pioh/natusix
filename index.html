@@ -565,6 +565,15 @@
   .modal-section-img.is-svg img {
     width: 100%; height: auto; object-fit: contain; display: block;
   }
+  .modal-video {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--border);
+    background: #000;
+  }
+  .modal-video iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+  }
   .modal-section-img-placeholder {
     width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
     font-size: 11px; color: var(--text-muted);
@@ -1184,6 +1193,16 @@ function ProjectModal({ project, onClose, lang }) {
           </div>
         )}
 
+        {p.videoSrc && (
+          <div className="modal-section">
+            <div className="modal-section-label"><span className="modal-section-num">▶</span>Видео</div>
+            <div className="modal-section-content">
+              <div className="modal-video">
+                <iframe src={p.videoSrc} allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen />
+              </div>
+            </div>
+          </div>
+        )}
         <div className="modal-sections">
           {sections.map((s, i) => (
             <div key={i} className="modal-section">
@@ -1260,7 +1279,7 @@ const FOLDERS = {
       { title: 'Тестовое Авито Недвижимость', client: 'Авито', year: '2022', tags: ['UX','Consumer','Case'], desc: 'Тестовое задание: флоу поиска и аренды жилья для Авито Недвижимость.', result: 'Тестовое задание', img: 'avito test', role: 'Product Designer' },
     ]},
     { label: 'Выступления', num: '05', papers: [
-      { title: 'Почему дизайнер — инженер', client: 'True Tech Podcast, МТС', year: '2025', tags: ['Podcast','Engineering','Design'], desc: 'Выпуск подкаста True Tech от МТС о том, почему дизайнер — это инженер.', result: 'Подкаст', img: 'podcast 2025', imgSrc: 'подкаст.png', role: 'Спикер' },
+      { title: 'Почему дизайнер — инженер', client: 'True Tech Podcast, МТС', year: '2025', tags: ['Podcast','Engineering','Design'], desc: 'Выпуск подкаста True Tech от МТС о том, почему дизайнер — это инженер.', result: 'Подкаст', img: 'podcast 2025', imgSrc: 'подкаст.png', role: 'Спикер', videoSrc: 'https://vkvideo.ru/video_ext.php?oid=-226874221&id=456239365&hd=2' },
       { title: 'Design Oooops', client: 'Дизайн-выходные, Ярославль', year: '2025', tags: ['Process','DesignOps','Talk'], desc: 'Опыт выстраивания дизайн-процессов: с какими проблемами сталкивалась и как их решала.', result: 'Презентация в Telegram', img: 'talk 2025', imgSrc: 'oops.png', role: 'Спикер' },
       { title: 'Как оценивать скиллы дизайнера', client: 'Дизайн-выходные', year: '2024', tags: ['Management','Team','Talk'], desc: 'Как оценивать скиллы дизайнера и выстраивать с ним работу. Как решать конфликты между дизайнерами и другими участниками команд — на реальных примерах.', result: 'Презентация в Telegram', img: 'talk 2024', imgSrc: 'скиллы.png', role: 'Спикер' },
       { title: 'UX-тесты в Useberry', client: 'Дизайн-выходные', year: '2023', tags: ['UX','Research','Talk'], desc: 'Рассказала про UX-тестирование в инструменте Useberry: как проводить, анализировать и внедрять результаты в продуктовую работу.', result: 'Презентация + запись YouTube', img: 'talk 2023', imgSrc: 'useberry.png', role: 'Спикер' },
