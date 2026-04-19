@@ -566,6 +566,19 @@
     width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
     font-size: 11px; color: var(--text-muted);
   }
+  .modal-section-img-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .modal-section-img-grid-item {
+    border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    aspect-ratio: 16/10;
+  }
+  .modal-section-img-grid-item img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
   .modal-section-result {
     font-size: 14px; font-weight: 700; color: var(--accent);
     white-space: pre-line; line-height: 2;
@@ -1142,12 +1155,21 @@ function ProjectModal({ project, onClose, lang }) {
                     ? <div className="modal-section-result">→ {s.text}</div>
                     : <div className="modal-section-text">{s.text}</div>
                 )}
-                {s.imgSrc && (
+                {s.images && s.images.length > 0 && (
+                  <div className="modal-section-img-grid">
+                    {s.images.map((src, j) => (
+                      <div key={j} className="modal-section-img-grid-item">
+                        <img src={src} alt={`${s.label} ${j+1}`} />
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {!s.images && s.imgSrc && (
                   <div className="modal-section-img">
                     <img src={s.imgSrc} alt={s.label} />
                   </div>
                 )}
-                {!s.text && !s.imgSrc && (
+                {!s.text && !s.imgSrc && !s.images && (
                   <div className="modal-section-img" style={{aspectRatio:'16/7'}}>
                     <div className="modal-section-img-placeholder">{isRu ? 'Скоро' : 'Coming soon'}</div>
                   </div>
