@@ -936,7 +936,7 @@ const T = {
       title: 'Проекты',
       sub: 'Выбранные работы',
       items: [
-        { id: 1, title: 'Mission Control MVP', client: 'МТС', year: '2019–2021', tags: ['UX', 'B2B', 'ITSM'], desc: 'Система управления инцидентами с нуля. Полный цикл: исследование, проектирование, прототипирование, сопровождение разработки.', role: 'Senior Product Designer', result: 'MVP запущен в прод', img: 'mockup — incident management' },
+        { id: 1, title: 'Smart ITSM', client: 'МТС', year: '2019–2021', tags: ['UX', 'B2B', 'ITSM'], desc: 'Система управления инцидентами с нуля. Полный цикл: исследование, проектирование, прототипирование, сопровождение разработки.', role: 'Senior Product Designer', result: 'MVP запущен в прод', img: 'mockup — incident management' },
         { id: 2, title: 'Smart ITSM', client: 'МТС', year: '2021', tags: ['UX', 'B2B', 'AI'], desc: 'Умная система сбора и решения инцидентов. Автоматизация обработки обращений через ML-классификацию.', role: 'Senior Product Designer', result: 'AI-классификация тикетов', img: 'mockup — smart itsm' },
         { id: 3, title: 'Notification Platform', client: 'МТС', year: '2024–2025', tags: ['Product', 'B2B', 'Platform'], desc: 'Платформа управления уведомлениями. Аудитория выросла с 584 до 2040 получателей, доля обращений в поддержку снизилась с 63% до 34%.', role: 'Design Lead', result: '584→2040 получателей', img: 'mockup — notifications' },
         { id: 4, title: 'Ops Platform CJM', client: 'МТС', year: '2023–2024', tags: ['UX', 'CJM', 'B2B'], desc: 'Сквозной CJM для Ops Platform. Картирование пути пользователя через все продукты платформы, выявление точек боли и оптимизация флоу.', role: 'Design Lead', result: 'Сквозной CJM платформы', img: 'mockup — cjm' },
@@ -1020,7 +1020,7 @@ const T = {
       title: 'Projects',
       sub: 'Selected works',
       items: [
-        { id: 1, title: 'Mission Control MVP', client: 'MTS', year: '2019–2021', tags: ['UX', 'B2B', 'ITSM'], desc: 'Incident management system built from scratch. Full cycle: research, design, prototyping, dev support.', role: 'Senior Product Designer', result: 'MVP shipped to prod', img: 'mockup — incident management' },
+        { id: 1, title: 'Smart ITSM', client: 'MTS', year: '2019–2021', tags: ['UX', 'B2B', 'ITSM'], desc: 'Incident management system built from scratch. Full cycle: research, design, prototyping, dev support.', role: 'Senior Product Designer', result: 'MVP shipped to prod', img: 'mockup — incident management' },
         { id: 2, title: 'Smart ITSM', client: 'MTS', year: '2021', tags: ['UX', 'B2B', 'AI'], desc: 'Smart incident collection and resolution system with ML-based ticket classification to automate handling.', role: 'Senior Product Designer', result: 'AI ticket classification', img: 'mockup — smart itsm' },
         { id: 3, title: 'Notification Platform', client: 'MTS', year: '2024–2025', tags: ['Product', 'B2B', 'Platform'], desc: 'Notification management platform. Audience grew from 584 to 2040 recipients, support requests dropped from 63% to 34%.', role: 'Design Lead', result: '584→2040 recipients', img: 'mockup — notifications' },
         { id: 4, title: 'Ops Platform CJM', client: 'MTS', year: '2023–2024', tags: ['UX', 'CJM', 'B2B'], desc: 'End-to-end CJM for Ops Platform. Mapping user journey across all platform products, identifying pain points and optimizing flows.', role: 'Design Lead', result: 'Platform-wide CJM', img: 'mockup — cjm' },
@@ -1263,8 +1263,7 @@ function ProjectModal({ project, onClose, lang }) {
 const FOLDERS = {
   ru: [
     { label: 'Продукты', num: '01', papers: [
-      { title: 'Mission Control MVP', client: 'МТС', year: '2019–2021', tags: ['UX','ITSM','B2B'], desc: 'Система управления инцидентами с нуля. Полный цикл: исследование, проектирование, прототипирование.', result: 'MVP запущен в прод', img: 'incident management', imgSrc: 'MCpic.png', role: 'Senior Product Designer' },
-      { title: 'Smart ITSM', client: 'МТС', year: '2021', tags: ['UX','AI','B2B'], desc: 'Умная система сбора и решения инцидентов с ML-классификацией тикетов.', result: 'AI-классификация тикетов', img: 'smart itsm', role: 'Senior Product Designer' },
+      { title: 'Smart ITSM', client: 'МТС', year: '2019–2021', tags: ['UX','ITSM','B2B'], desc: 'Система управления инцидентами с нуля. Полный цикл: исследование, проектирование, прототипирование.', result: 'MVP запущен в прод', img: 'incident management', imgSrc: 'MCpic.png', role: 'Senior Product Designer' },
       { title: 'Notification Platform', client: 'МТС', year: '2024–2025', tags: ['Product','Platform','B2B'], desc: 'Платформа уведомлений: аудитория 584→2040 получателей, обращения в поддержку 63%→34%.', result: '584→2040 получателей', img: 'notifications', imgSrc: 'NPpic.png', role: 'Design Lead',
         metrics: [
           { num: '584→2040', label: 'получателей' },
@@ -1325,8 +1324,7 @@ const FOLDERS = {
   ],
   en: [
     { label: 'Products', num: '01', papers: [
-      { title: 'Mission Control MVP', client: 'MTS', year: '2019–2021', tags: ['UX','ITSM','B2B'], desc: 'Incident management system built from scratch. Full cycle: research, design, prototyping.', result: 'MVP shipped to prod', img: 'incident management', role: 'Senior Product Designer' },
-      { title: 'Smart ITSM', client: 'MTS', year: '2021', tags: ['UX','AI','B2B'], desc: 'Smart incident resolution system with ML-based ticket classification.', result: 'AI ticket classification', img: 'smart itsm', role: 'Senior Product Designer' },
+      { title: 'Smart ITSM', client: 'MTS', year: '2019–2021', tags: ['UX','ITSM','B2B'], desc: 'Incident management system built from scratch. Full cycle: research, design, prototyping.', result: 'MVP shipped to prod', img: 'incident management', role: 'Senior Product Designer' },
       { title: 'Notification Platform', client: 'MTS', year: '2024–2025', tags: ['Product','Platform','B2B'], desc: 'Notification management platform: audience grew 584→2040, support requests dropped 63%→34%.', result: '584→2040 recipients', img: 'notifications', role: 'Design Lead' },
     ]},
     { label: 'Platforms', num: '02', papers: [
