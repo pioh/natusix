@@ -1218,7 +1218,7 @@ function ProjectModal({ project, onClose, lang }) {
                   <CarouselSection images={s.images} label={s.label} />
                 )}
                 {!s.images && s.imgSrc && (
-                  <div className={`modal-section-img${s.imgSrc.endsWith('.svg') ? ' is-svg' : ''}`}>
+                  <div className={`modal-section-img${s.imgSrc.endsWith('.svg') || s.imgContain ? ' is-svg' : ''}`}>
                     <img src={s.imgSrc} alt={s.label} />
                   </div>
                 )}
@@ -1274,7 +1274,7 @@ const FOLDERS = {
         sections: [
           { label: 'Что делала', text: 'Запустила и провела кросс-командную сессию с дизайн-лидами для обсуждения проблем, достижений и зон роста внутри чаптеров. После обсуждения систематизировала выводы и оформила их в единый action plan.', images: ['LC1.png','LC2.png','LC3.png','LC4.png','LC5.png'] },
           { label: 'Моя роль', text: 'Отвечала за структуру и результат встречи: задала формат обсуждения, помогла участникам перейти от описания проблем к решениям, обеспечила приоритизацию и фиксацию договорённостей.' },
-          { label: 'Результат', text: 'Удалось превратить обсуждение в рабочий инструмент: появились общие приоритеты, понятные зоны ответственности и зафиксированные шаги по улучшению процессов и взаимодействия внутри дизайн-организации.', isResult: true, imgSrc: 'LC7.png' },
+          { label: 'Результат', text: 'Удалось превратить обсуждение в рабочий инструмент: появились общие приоритеты, понятные зоны ответственности и зафиксированные шаги по улучшению процессов и взаимодействия внутри дизайн-организации.', isResult: true, imgSrc: 'LC7.png', imgContain: true },
         ]
       },
       { title: 'Квартальные дизайн ревью (QDR)', client: 'МТС', year: '2022–2024', tags: ['DesignOps','Review','Process'], desc: 'Quarterly Design Review: регулярный cross-team процесс ревью и обмена знаниями.', result: '8 сессий в год', img: 'qdr', imgSrc: 'qdr0.jpg', role: 'Design Manager',
