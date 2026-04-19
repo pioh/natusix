@@ -525,6 +525,7 @@
   }
   .modal-section-text {
     font-size: 14px; line-height: 1.75; color: var(--text);
+    white-space: pre-line;
   }
   .modal-section-img {
     border-radius: 8px; overflow: hidden;
@@ -540,8 +541,8 @@
     font-size: 11px; color: var(--text-muted);
   }
   .modal-section-result {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 13px; font-weight: 700; color: var(--accent);
+    font-size: 14px; font-weight: 700; color: var(--accent);
+    white-space: pre-line; line-height: 2;
   }
 
   /* ═══ CLIPBOARD / CV ═══ */
@@ -1128,7 +1129,14 @@ const FOLDERS = {
     { label: 'Продукты', num: '01', papers: [
       { title: 'Mission Control MVP', client: 'МТС', year: '2019–2021', tags: ['UX','ITSM','B2B'], desc: 'Система управления инцидентами с нуля. Полный цикл: исследование, проектирование, прототипирование.', result: 'MVP запущен в прод', img: 'incident management', imgSrc: 'MCpic.png', role: 'Senior Product Designer' },
       { title: 'Smart ITSM', client: 'МТС', year: '2021', tags: ['UX','AI','B2B'], desc: 'Умная система сбора и решения инцидентов с ML-классификацией тикетов.', result: 'AI-классификация тикетов', img: 'smart itsm', role: 'Senior Product Designer' },
-      { title: 'Notification Platform', client: 'МТС', year: '2024–2025', tags: ['Product','Platform','B2B'], desc: 'Платформа уведомлений: аудитория 584→2040 получателей, обращения в поддержку 63%→34%.', result: '584→2040 получателей', img: 'notifications', imgSrc: 'NPpic.png', role: 'Design Lead' },
+      { title: 'Notification Platform', client: 'МТС', year: '2024–2025', tags: ['Product','Platform','B2B'], desc: 'Платформа уведомлений: аудитория 584→2040 получателей, обращения в поддержку 63%→34%.', result: '584→2040 получателей', img: 'notifications', imgSrc: 'NPpic.png', role: 'Design Lead',
+        sections: [
+          { label: 'Контекст', text: 'Система даёт возможность управлять потоком уведомлений в свой адрес, генерируемых внутренними платформами и системами.\n\nЦель: создать единую систему, где пользователь видит все уведомления из внутренних платформ, настраивает, что ему реально важно, управляет каналами доставки и фильтрами, может согласовывать подписки и снижать уровень шума.', imgSrc: 'NPpic.png' },
+          { label: 'Проблема', text: 'Пользователи получали уведомления из разных систем без единой точки управления. Невозможно было настроить приоритеты и каналы доставки. Уровень шума был высок — 63% обращений в поддержку были связаны с отсутствием своевременных нотификаций.\n\nСегменты с разными потребностями:\n• Дежурные/онколлы — критичность и скорость\n• Архитекторы/CTO — агрегации и high-level view\n• Сотрудники систем — только свои ошибки, минимум шума\n• Тревожники и минималисты — разные пресеты уведомлений', imgSrc: null },
+          { label: 'Решение', text: 'Я отвечала за:\n• Исследование текущего процесса и сценариев\n• Сегментацию пользователей (дежурные, разработчики, СТО)\n• Построение end-to-end User Flow для всех типов уведомлений\n• Разработку интерфейсов: списки, карточки уведомлений, редактор фильтров, настройщик каналов\n• Унификацию шаблонов email/SMS/push для всех систем\n• Метрики качества и контроль эффективности после запуска', imgSrc: null },
+          { label: 'Результат', text: '584 → 2040 чел — получателей нотификаций\n108 166 → 299 425 шт — отправлено нотификаций\n281 → 373 шт — уникальных сценариев\n63% → 34% — обращений в поддержку', imgSrc: null, isResult: true },
+        ]
+      },
       { title: 'EDT Concept', client: 'МТС', year: '2021', tags: ['Concept','UX','B2B'], desc: 'UX-концепт нового продукта EDT: исследование, прототипирование, презентация стейкхолдерам.', result: 'Концепт принят', img: 'edt concept', role: 'Senior Product Designer' },
     ]},
     { label: 'Платформы', num: '02', papers: [
