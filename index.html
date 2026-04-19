@@ -330,115 +330,86 @@
   .papers-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
+    gap: 0;
+    border-left: 1px solid var(--fg);
+    border-top: 1px solid var(--fg);
     align-items: start;
   }
 
   .paper-card {
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"),
-      #f8f8f6;
-    background-blend-mode: multiply;
-    border: 1px solid #dddbd5;
-    border-radius: 1px;
-    box-shadow:
-      inset 0 0 12px rgba(0,0,0,0.04),
-      3px 3px 0 #d8d6d0, 6px 6px 0 #ccc9c2,
-      0 14px 36px rgba(0,0,0,0.55);
+    background: var(--bg);
+    border-right: 1px solid var(--fg);
+    border-bottom: 1px solid var(--fg);
     cursor: pointer;
-    transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s;
+    transition: background 0.15s ease;
     overflow: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
-  .paper-card:nth-child(1) { transform: rotate(-0.4deg); }
-  .paper-card:nth-child(2) { transform: rotate( 0.6deg); }
-  .paper-card:nth-child(3) { transform: rotate(-0.3deg); }
-  .paper-card:nth-child(4) { transform: rotate( 0.5deg); }
   .paper-card:hover {
-    transform: translateY(-14px) rotate(-1deg) !important;
-    box-shadow: 3px 3px 0 #ccc4a8, 6px 6px 0 #bdb598, 0 32px 60px rgba(0,0,0,0.65);
+    background: color-mix(in srgb, var(--accent) 12%, var(--bg));
     z-index: 10;
   }
 
   @keyframes paperDrop {
-    from { opacity:0; transform: translateY(-20px) rotate(var(--r,0deg)); }
-    to   { opacity:1; transform: translateY(0)     rotate(var(--r,0deg)); }
+    from { opacity:0; transform: translateY(10px); }
+    to   { opacity:1; transform: translateY(0); }
   }
-  .paper-card { animation: paperDrop 0.35s ease both; }
-  .paper-card:nth-child(1) { animation-delay: 0.04s; --r: -0.4deg; }
-  .paper-card:nth-child(2) { animation-delay: 0.10s; --r:  0.6deg; }
-  .paper-card:nth-child(3) { animation-delay: 0.16s; --r: -0.3deg; }
-  .paper-card:nth-child(4) { animation-delay: 0.22s; --r:  0.5deg; }
+  .paper-card { animation: paperDrop 0.28s ease both; }
+  .paper-card:nth-child(1) { animation-delay: 0.04s; }
+  .paper-card:nth-child(2) { animation-delay: 0.10s; }
+  .paper-card:nth-child(3) { animation-delay: 0.16s; }
+  .paper-card:nth-child(4) { animation-delay: 0.22s; }
 
-  .paper-lines {
-    position: absolute; inset: 0; pointer-events: none;
-    background: repeating-linear-gradient(
-      transparent, transparent 23px,
-      rgba(0,0,0,0.06) 23px, rgba(0,0,0,0.06) 24px
-    );
-    opacity: 1;
+  .paper-lines { display: none; }
+
+  .paper-card::after { display: none; }
+
+  .paper-row {
+    display: flex;
+    border-bottom: 1px solid var(--fg);
   }
-  .paper-card::after {
-    content: '';
-    position: absolute; inset: 0; pointer-events: none;
-    background:
-      radial-gradient(circle at 0% 0%, rgba(0,0,0,0.07) 0%, transparent 25%),
-      radial-gradient(circle at 100% 100%, rgba(0,0,0,0.06) 0%, transparent 25%);
-    border-radius: 1px;
+  .paper-row:last-child { border-bottom: none; }
+  .paper-row-label {
+    font-family: var(--font); font-size: 11px; font-weight: 700;
+    color: var(--fg); padding: 8px 12px;
+    border-right: 1px solid var(--fg);
+    min-width: 80px; flex-shrink: 0;
+    display: flex; align-items: center;
+    text-transform: uppercase; letter-spacing: 0.04em;
   }
-  .paper-header {
-    padding: 14px 14px 10px;
-    border-bottom: 2px solid #1a1610;
-    position: relative; z-index: 1;
+  .paper-row-value {
+    font-family: var(--font); font-size: 11px; font-weight: 700;
+    color: var(--fg); padding: 8px 12px;
+    display: flex; align-items: center; flex: 1;
+    line-height: 1.3;
   }
-  .paper-meta-row {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 6px;
-  }
-  .paper-num {
-    font-size: 9px; font-family: var(--font); font-weight: 600;
-    letter-spacing: 0.15em; text-transform: uppercase; color: #8a8070;
-  }
-  .paper-stamp {
-    font-size: 9px; font-family: var(--font); font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; color: #1a1610;
-    border: 1.5px solid #1a1610; padding: 1px 6px; border-radius: 2px;
-  }
-  .paper-title {
-    font-family: var(--font); font-size: 13px; font-weight: 700;
-    color: #1a1610; line-height: 1.25;
+  .paper-row-value.paper-year {
+    font-weight: 400; color: color-mix(in srgb, var(--fg) 55%, transparent);
   }
   .paper-img-area {
-    height: 90px;
-    background: #e8e8e6;
-    border-bottom: 1px solid #dddbd5;
+    flex: 1;
+    min-height: 160px;
+    background: color-mix(in srgb, var(--fg) 7%, transparent);
+    border-top: 1px solid var(--fg);
     display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
   }
-  .paper-img-area::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(0,0,0,0.04) 7px, rgba(0,0,0,0.04) 8px);
-  }
   .paper-img-area span {
-    position: relative; z-index:1;
-    font-family: var(--font); font-size: 9px; color: #8a8070;
-    background: #e8e2ce; padding: 3px 8px; border: 1px solid #d0c8b0;
+    font-family: var(--font); font-size: 9px;
+    color: color-mix(in srgb, var(--fg) 40%, transparent);
+    letter-spacing: 0.06em;
   }
-  .paper-body { padding: 10px 14px 14px; position: relative; z-index:1; }
-  .paper-client {
-    font-family: var(--font); font-size: 9px; color: #8a8070;
-    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;
-  }
-  .paper-desc {
-    font-family: var(--font); font-size: 10.5px; color: #3a3020;
-    line-height: 1.55;
-  }
-  .paper-result {
-    margin-top: 9px; padding-top: 8px; border-top: 1px solid #d0c8b0;
-    font-family: var(--font); font-size: 10px; font-weight: 700; color: #1a1610;
-  }
+  .paper-header { display: none; }
+  .paper-meta-row { display: none; }
+  .paper-num { display: none; }
+  .paper-stamp { display: none; }
+  .paper-title { display: none; }
+  .paper-body { display: none; }
+  .paper-client { display: none; }
+  .paper-desc { display: none; }
+  .paper-result { display: none; }
 
   .drawer-floor {
     margin-top: 28px; padding-top: 16px;
@@ -1157,21 +1128,24 @@ function PageProjects({ lang }) {
           <div className="papers-grid">
             {folders[activeFolder].papers.map((p, i) => (
               <div key={i} className="paper-card" onClick={() => setActivePaper({ ...p, id: i })}>
-                <div className="paper-lines" />
-                <div className="paper-header">
-                  <div className="paper-meta-row">
-                    <span className="paper-num">{folders[activeFolder].num}—{String(i+1).padStart(2,'0')}</span>
-                    <span className="paper-stamp">{p.year}</span>
-                  </div>
-                  <div className="paper-title">{p.title}</div>
+                <div className="paper-row">
+                  <span className="paper-row-label">{lang==='ru' ? 'Проект' : 'Title'}</span>
+                  <span className="paper-row-value">{p.title}</span>
+                </div>
+                <div className="paper-row">
+                  <span className="paper-row-label">{lang==='ru' ? 'Клиент' : 'Client'}</span>
+                  <span className="paper-row-value">{p.client}</span>
+                </div>
+                <div className="paper-row">
+                  <span className="paper-row-label">{lang==='ru' ? 'Роль' : 'Role'}</span>
+                  <span className="paper-row-value">{p.role}</span>
+                </div>
+                <div className="paper-row">
+                  <span className="paper-row-label">{lang==='ru' ? 'Год' : 'Year'}</span>
+                  <span className="paper-row-value paper-year">{p.year}</span>
                 </div>
                 <div className="paper-img-area">
                   <span>{p.img}</span>
-                </div>
-                <div className="paper-body">
-                  <div className="paper-client">{p.client}</div>
-                  <div className="paper-desc">{p.desc}</div>
-                  <div className="paper-result">→ {p.result}</div>
                 </div>
               </div>
             ))}
