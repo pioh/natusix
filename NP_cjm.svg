@@ -103,24 +103,24 @@
   <line x1="0" y1="288" x2="1200" y2="288" stroke="#2a2a24" stroke-width="1"/>
   <text x="16" y="312" font-size="9" fill="#6b6860" letter-spacing="1">БОЛИ</text>
 
-  <text x="196" y="312" font-size="11" fill="#e05050">Много лишнего шума,</text>
-  <text x="196" y="327" font-size="11" fill="#e05050">нет приоритизации</text>
+  <text x="196" y="312" font-size="11" fill="#f0ece0">Много лишнего шума,</text>
+  <text x="196" y="327" font-size="11" fill="#f0ece0">нет приоритизации</text>
   <text x="196" y="342" font-size="10" fill="#6b6860">63% → поддержка</text>
 
-  <text x="396" y="312" font-size="11" fill="#e05050">Нет фильтрации</text>
-  <text x="396" y="327" font-size="11" fill="#e05050">по типу и важности</text>
+  <text x="396" y="312" font-size="11" fill="#f0ece0">Нет фильтрации</text>
+  <text x="396" y="327" font-size="11" fill="#f0ece0">по типу и важности</text>
   <text x="396" y="342" font-size="10" fill="#6b6860">всё смешано</text>
 
-  <text x="596" y="312" font-size="11" fill="#e08830">Настройки сложные,</text>
-  <text x="596" y="327" font-size="11" fill="#e08830">разные для каждой</text>
+  <text x="596" y="312" font-size="11" fill="#f0ece0">Настройки сложные,</text>
+  <text x="596" y="327" font-size="11" fill="#f0ece0">разные для каждой</text>
   <text x="596" y="342" font-size="10" fill="#6b6860">системы отдельно</text>
 
-  <text x="796" y="312" font-size="11" fill="#e08830">Нет единой точки</text>
-  <text x="796" y="327" font-size="11" fill="#e08830">управления группами</text>
+  <text x="796" y="312" font-size="11" fill="#f0ece0">Нет единой точки</text>
+  <text x="796" y="327" font-size="11" fill="#f0ece0">управления группами</text>
   <text x="796" y="342" font-size="10" fill="#6b6860">подписок</text>
 
-  <text x="996" y="312" font-size="11" fill="#c9f135">Нет данных о</text>
-  <text x="996" y="327" font-size="11" fill="#c9f135">доставке и охвате</text>
+  <text x="996" y="312" font-size="11" fill="#f0ece0">Нет данных о</text>
+  <text x="996" y="327" font-size="11" fill="#f0ece0">доставке и охвате</text>
   <text x="996" y="342" font-size="10" fill="#6b6860">нотификаций</text>
 
   <!-- ── ROW 4: ВОЗМОЖНОСТИ ── -->
@@ -128,24 +128,24 @@
   <line x1="0" y1="364" x2="1200" y2="364" stroke="#2a2a24" stroke-width="1"/>
   <text x="16" y="388" font-size="9" fill="#6b6860" letter-spacing="1">ВОЗМОЖНОСТИ</text>
 
-  <text x="196" y="388" font-size="11" fill="#50c878">Пресеты профилей</text>
-  <text x="196" y="403" font-size="11" fill="#50c878">по сегментам</text>
+  <text x="196" y="388" font-size="11" fill="#f0ece0">Пресеты профилей</text>
+  <text x="196" y="403" font-size="11" fill="#f0ece0">по сегментам</text>
   <text x="196" y="418" font-size="10" fill="#6b6860">онколл / CTO / минималист</text>
 
-  <text x="396" y="388" font-size="11" fill="#50c878">Умная лента</text>
-  <text x="396" y="403" font-size="11" fill="#50c878">с приоритетами</text>
+  <text x="396" y="388" font-size="11" fill="#f0ece0">Умная лента</text>
+  <text x="396" y="403" font-size="11" fill="#f0ece0">с приоритетами</text>
   <text x="396" y="418" font-size="10" fill="#6b6860">критичное выше</text>
 
-  <text x="596" y="388" font-size="11" fill="#50c878">Единый редактор</text>
-  <text x="596" y="403" font-size="11" fill="#50c878">всех каналов</text>
+  <text x="596" y="388" font-size="11" fill="#f0ece0">Единый редактор</text>
+  <text x="596" y="403" font-size="11" fill="#f0ece0">всех каналов</text>
   <text x="596" y="418" font-size="10" fill="#6b6860">email + push + SMS</text>
 
-  <text x="796" y="388" font-size="11" fill="#50c878">Согласование</text>
-  <text x="796" y="403" font-size="11" fill="#50c878">подписок в 1 клик</text>
+  <text x="796" y="388" font-size="11" fill="#f0ece0">Согласование</text>
+  <text x="796" y="403" font-size="11" fill="#f0ece0">подписок в 1 клик</text>
   <text x="796" y="418" font-size="10" fill="#6b6860">workflow апрувов</text>
 
-  <text x="996" y="388" font-size="11" fill="#50c878">Дашборд с метриками</text>
-  <text x="996" y="403" font-size="11" fill="#50c878">охвата и доставки</text>
+  <text x="996" y="388" font-size="11" fill="#f0ece0">Дашборд с метриками</text>
+  <text x="996" y="403" font-size="11" fill="#f0ece0">охвата и доставки</text>
   <text x="996" y="418" font-size="10" fill="#6b6860">для PM и СТО</text>
 
   <!-- Bottom border -->
