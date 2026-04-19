@@ -80,8 +80,8 @@
 
   <rect x="396" y="222" width="104" height="20" rx="3" fill="#1e2a1a"/>
   <text x="448" y="236" font-size="10" fill="#c9f135" text-anchor="middle">Лента событий</text>
-  <rect x="396" y="248" width="84" height="20" rx="3" fill="#1e2a1a"/>
-  <text x="438" y="262" font-size="10" fill="#c9f135" text-anchor="middle">Карточка уведомления</text>
+  <rect x="390" y="248" width="130" height="20" rx="3" fill="#1e2a1a"/>
+  <text x="455" y="262" font-size="10" fill="#c9f135" text-anchor="middle">Карточка уведомления</text>
 
   <rect x="596" y="222" width="114" height="20" rx="3" fill="#1e2a1a"/>
   <text x="653" y="236" font-size="10" fill="#c9f135" text-anchor="middle">Редактор фильтров</text>
@@ -95,8 +95,8 @@
 
   <rect x="996" y="222" width="84" height="20" rx="3" fill="#1e2a1a"/>
   <text x="1038" y="236" font-size="10" fill="#c9f135" text-anchor="middle">Дашборд</text>
-  <rect x="996" y="248" width="104" height="20" rx="3" fill="#1e2a1a"/>
-  <text x="1048" y="262" font-size="10" fill="#c9f135" text-anchor="middle">Статистика уведомлений</text>
+  <rect x="990" y="248" width="140" height="20" rx="3" fill="#1e2a1a"/>
+  <text x="1060" y="262" font-size="10" fill="#c9f135" text-anchor="middle">Статистика уведомлений</text>
 
   <!-- ── ROW 3: БОЛИ ── -->
   <rect x="0" y="288" width="1200" height="76" fill="#141410"/>
