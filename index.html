@@ -607,6 +607,16 @@
   .carousel-btn:hover { background: var(--accent); color: var(--accent-text); }
   .carousel-btn-prev { left: -18px; }
   .carousel-btn-next { right: -18px; }
+  .lightbox-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.92);
+    display: flex; align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox-overlay img {
+    max-width: 95vw; max-height: 95vh;
+    object-fit: contain; border-radius: 4px;
+  }
   .modal-section-result {
     font-size: 14px; font-weight: 700; color: var(--accent);
     white-space: pre-line; line-height: 2;
@@ -1114,24 +1124,38 @@ function PlaceholderImg({ label, style }) {
 
 function CarouselSection({ images, label }) {
   const ref = React.useRef(null);
+  const [lightbox, setLightbox] = React.useState(null);
   const scroll = (dir) => {
     const el = ref.current;
     if (!el) return;
     const itemW = el.firstChild ? el.firstChild.offsetWidth + 10 : el.offsetWidth * 0.72;
     el.scrollBy({ left: dir * itemW, behavior: 'smooth' });
   };
+  React.useEffect(() => {
+    if (lightbox === null) return;
+    const handler = (e) => { if (e.key === 'Escape') setLightbox(null); };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [lightbox]);
   return (
-    <div className="modal-section-carousel-wrap">
-      <button className="carousel-btn carousel-btn-prev" onClick={() => scroll(-1)}>&#8592;</button>
-      <div className="modal-section-carousel" ref={ref}>
-        {images.map((src, j) => (
-          <div key={j} className="modal-section-carousel-item">
-            <img src={src} alt={`${label} ${j+1}`} />
-          </div>
-        ))}
+    <>
+      {lightbox !== null && (
+        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
+          <img src={images[lightbox]} alt={`${label} ${lightbox+1}`} />
+        </div>
+      )}
+      <div className="modal-section-carousel-wrap">
+        <button className="carousel-btn carousel-btn-prev" onClick={() => scroll(-1)}>&#8592;</button>
+        <div className="modal-section-carousel" ref={ref}>
+          {images.map((src, j) => (
+            <div key={j} className="modal-section-carousel-item" onClick={() => setLightbox(j)} style={{cursor:'zoom-in'}}>
+              <img src={src} alt={`${label} ${j+1}`} />
+            </div>
+          ))}
+        </div>
+        <button className="carousel-btn carousel-btn-next" onClick={() => scroll(1)}>&#8594;</button>
       </div>
-      <button className="carousel-btn carousel-btn-next" onClick={() => scroll(1)}>&#8594;</button>
-    </div>
+    </>
   );
 }
 
