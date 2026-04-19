@@ -469,6 +469,8 @@
   }
   .modal-close:hover { background: var(--bg3); }
   .modal-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+
+  /* Simple fallback body (no sections) */
   .modal-body { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
   .modal-img {
     background: var(--bg2); border: 1px solid var(--border);
@@ -488,6 +490,59 @@
   .modal-info { display: flex; flex-direction: column; gap: 20px; }
   .modal-info-row label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
   .modal-info-row p { font-size: 13px; line-height: 1.7; }
+
+  /* Sections layout (variant 4) */
+  .modal-meta-bar {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .modal-meta-item label {
+    font-size: 10px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.1em; display: block; margin-bottom: 3px;
+  }
+  .modal-meta-item span { font-size: 13px; font-weight: 600; color: var(--text); }
+
+  .modal-sections { display: flex; flex-direction: column; gap: 0; }
+  .modal-section {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 0; border-bottom: 1px solid var(--border);
+  }
+  .modal-section:last-child { border-bottom: none; }
+  .modal-section-label {
+    padding: 28px 24px 28px 0;
+    border-right: 1px solid var(--border);
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--text-muted);
+    display: flex; align-items: flex-start; padding-top: 30px;
+  }
+  .modal-section-num {
+    font-size: 10px; color: var(--accent); margin-right: 10px; margin-top: 1px;
+  }
+  .modal-section-content {
+    padding: 28px 0 28px 32px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .modal-section-text {
+    font-size: 14px; line-height: 1.75; color: var(--text);
+  }
+  .modal-section-img {
+    border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--border);
+    aspect-ratio: 16/9; position: relative;
+    background: var(--bg2);
+  }
+  .modal-section-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .modal-section-img-placeholder {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--text-muted);
+  }
+  .modal-section-result {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; color: var(--accent);
+  }
 
   /* ═══ CLIPBOARD / CV ═══ */
   .cv-stage {
@@ -992,13 +1047,22 @@ function PlaceholderImg({ label, style }) {
 }
 
 function ProjectModal({ project, onClose, lang }) {
-  const t = T[lang].projects;
   const p = project;
+  const isRu = lang === 'ru';
   useEffect(() => {
     const handler = e => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
   }, []);
+
+  const defaultSections = [
+    { label: isRu ? 'Контекст' : 'Context',  text: p.desc,   imgSrc: p.imgSrc },
+    { label: isRu ? 'Проблема' : 'Problem',  text: '',        imgSrc: null },
+    { label: isRu ? 'Решение' : 'Solution',  text: '',        imgSrc: null },
+    { label: isRu ? 'Результат' : 'Result',  text: p.result,  imgSrc: null, isResult: true },
+  ];
+  const sections = p.sections || defaultSections;
+
   return (
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="modal">
@@ -1008,31 +1072,51 @@ function ProjectModal({ project, onClose, lang }) {
               {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
             </div>
             <div className="modal-title">{p.title}</div>
-            <div style={{fontSize:12, color:'var(--text-muted)', marginTop:4}}>{p.client} / {p.year}</div>
           </div>
-          <button className="modal-close" onClick={onClose}>✕ Close</button>
+          <button className="modal-close" onClick={onClose}>✕ {isRu ? 'Закрыть' : 'Close'}</button>
         </div>
-        <div className="modal-body">
-          <div className="modal-img">
-            {p.imgSrc
-              ? <img src={p.imgSrc} alt={p.title} style={{width:'100%',height:'100%',objectFit:'cover',display:'block',borderRadius:'inherit'}} />
-              : <><div className="modal-img-inner" /><span>{p.img}</span></>
-            }
+
+        <div className="modal-meta-bar">
+          <div className="modal-meta-item">
+            <label>{isRu ? 'Клиент' : 'Client'}</label>
+            <span>{p.client}</span>
           </div>
-          <div className="modal-info">
-            <div className="modal-info-row">
-              <label>Description</label>
-              <p>{p.desc}</p>
-            </div>
-            <div className="modal-info-row">
-              <label>Role</label>
-              <p>{p.role}</p>
-            </div>
-            <div className="modal-info-row">
-              <label>Result</label>
-              <p style={{color:'var(--accent)', fontWeight:600}}>{p.result}</p>
-            </div>
+          <div className="modal-meta-item">
+            <label>{isRu ? 'Год' : 'Year'}</label>
+            <span>{p.year}</span>
           </div>
+          <div className="modal-meta-item">
+            <label>{isRu ? 'Роль' : 'Role'}</label>
+            <span>{p.role}</span>
+          </div>
+        </div>
+
+        <div className="modal-sections">
+          {sections.map((s, i) => (
+            <div key={i} className="modal-section">
+              <div className="modal-section-label">
+                <span className="modal-section-num">0{i+1}</span>
+                {s.label}
+              </div>
+              <div className="modal-section-content">
+                {s.text && (
+                  s.isResult
+                    ? <div className="modal-section-result">→ {s.text}</div>
+                    : <div className="modal-section-text">{s.text}</div>
+                )}
+                {s.imgSrc && (
+                  <div className="modal-section-img">
+                    <img src={s.imgSrc} alt={s.label} />
+                  </div>
+                )}
+                {!s.text && !s.imgSrc && (
+                  <div className="modal-section-img" style={{aspectRatio:'16/7'}}>
+                    <div className="modal-section-img-placeholder">{isRu ? 'Скоро' : 'Coming soon'}</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
