@@ -410,6 +410,24 @@
   .paper-desc { display: none; }
   .paper-result { display: none; }
 
+  .role-filter-row {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 20px;
+  }
+  .role-filter-btn {
+    font-family: var(--font); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #a8a89a; background: transparent;
+    border: 1px solid #3a3a30;
+    padding: 5px 12px; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .role-filter-btn:hover { color: #f0ece0; border-color: #686858; }
+  .role-filter-btn.active {
+    color: #1a1a16; background: var(--accent);
+    border-color: var(--accent);
+  }
+
   .drawer-floor {
     margin-top: 28px; padding-top: 16px;
     border-top: 1px solid #252520;
@@ -1090,13 +1108,19 @@ function PageProjects({ lang }) {
   const [activeFolder, setActiveFolder] = useState(0);
   const [activePaper, setActivePaper] = useState(null);
   const [drawerKey, setDrawerKey] = useState(0);
+  const [activeRole, setActiveRole] = useState(null);
   const folders = FOLDERS[lang];
 
   const switchFolder = (i) => {
     if (i === activeFolder) return;
     setActiveFolder(i);
+    setActiveRole(null);
     setDrawerKey(k => k + 1);
   };
+
+  const currentPapers = folders[activeFolder].papers;
+  const roles = [...new Set(currentPapers.map(p => p.role).filter(Boolean))];
+  const visiblePapers = activeRole ? currentPapers.filter(p => p.role === activeRole) : currentPapers;
 
   const t = T[lang];
 
@@ -1124,8 +1148,29 @@ function PageProjects({ lang }) {
 
         {/* Drawer with papers */}
         <div className="folder-drawer" key={drawerKey}>
+          {/* Role filter */}
+          {roles.length > 1 && (
+            <div className="role-filter-row">
+              <button
+                className={`role-filter-btn${activeRole === null ? ' active' : ''}`}
+                onClick={() => setActiveRole(null)}
+              >
+                {lang==='ru' ? 'Все' : 'All'}
+              </button>
+              {roles.map(r => (
+                <button
+                  key={r}
+                  className={`role-filter-btn${activeRole === r ? ' active' : ''}`}
+                  onClick={() => setActiveRole(activeRole === r ? null : r)}
+                >
+                  {r}
+                </button>
+              ))}
+            </div>
+          )}
+
           <div className="papers-grid">
-            {folders[activeFolder].papers.map((p, i) => (
+            {visiblePapers.map((p, i) => (
               <div key={i} className="paper-card" onClick={() => setActivePaper({ ...p, id: i })}>
                 <div className="paper-row">
                   <span className="paper-row-label">{lang==='ru' ? 'Проект' : 'Title'}</span>
@@ -1145,9 +1190,10 @@ function PageProjects({ lang }) {
           <div className="drawer-floor">
             <span className="drawer-label">
               {lang==='ru' ? 'Папка' : 'Folder'}: {folders[activeFolder].label}
+              {activeRole && ` · ${activeRole}`}
             </span>
             <span className="drawer-label">
-              {folders[activeFolder].papers.length} {lang==='ru' ? 'документа' : 'documents'}
+              {visiblePapers.length} {lang==='ru' ? 'документа' : 'documents'}
             </span>
           </div>
         </div>
