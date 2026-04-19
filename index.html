@@ -331,15 +331,15 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    border-left: 1px solid var(--fg);
-    border-top: 1px solid var(--fg);
-    align-items: start;
+    border-left: 1px solid #1a1a16;
+    border-top: 1px solid #1a1a16;
+    align-items: stretch;
   }
 
   .paper-card {
-    background: var(--bg);
-    border-right: 1px solid var(--fg);
-    border-bottom: 1px solid var(--fg);
+    background: #f4f2ec;
+    border-right: 1px solid #1a1a16;
+    border-bottom: 1px solid #1a1a16;
     cursor: pointer;
     transition: background 0.15s ease;
     overflow: hidden;
@@ -348,7 +348,7 @@
     flex-direction: column;
   }
   .paper-card:hover {
-    background: color-mix(in srgb, var(--accent) 12%, var(--bg));
+    background: #edf7c8;
     z-index: 10;
   }
 
@@ -363,43 +363,42 @@
   .paper-card:nth-child(4) { animation-delay: 0.22s; }
 
   .paper-lines { display: none; }
-
   .paper-card::after { display: none; }
 
   .paper-row {
     display: flex;
-    border-bottom: 1px solid var(--fg);
+    border-bottom: 1px solid #1a1a16;
   }
-  .paper-row:last-child { border-bottom: none; }
   .paper-row-label {
     font-family: var(--font); font-size: 11px; font-weight: 700;
-    color: var(--fg); padding: 8px 12px;
-    border-right: 1px solid var(--fg);
-    min-width: 80px; flex-shrink: 0;
+    color: #1a1a16; padding: 9px 12px;
+    border-right: 1px solid #1a1a16;
+    width: 72px; flex-shrink: 0;
     display: flex; align-items: center;
     text-transform: uppercase; letter-spacing: 0.04em;
+    line-height: 1.2;
   }
   .paper-row-value {
     font-family: var(--font); font-size: 11px; font-weight: 700;
-    color: var(--fg); padding: 8px 12px;
+    color: #1a1a16; padding: 9px 12px;
     display: flex; align-items: center; flex: 1;
     line-height: 1.3;
   }
   .paper-row-value.paper-year {
-    font-weight: 400; color: color-mix(in srgb, var(--fg) 55%, transparent);
+    font-weight: 400; color: #6b6860;
   }
   .paper-img-area {
     flex: 1;
-    min-height: 160px;
-    background: color-mix(in srgb, var(--fg) 7%, transparent);
-    border-top: 1px solid var(--fg);
+    min-height: 140px;
+    background: #e2dfda;
+    border-top: 1px solid #1a1a16;
     display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
   }
   .paper-img-area span {
     font-family: var(--font); font-size: 9px;
-    color: color-mix(in srgb, var(--fg) 40%, transparent);
-    letter-spacing: 0.06em;
+    color: #9a9690; letter-spacing: 0.08em;
+    text-transform: lowercase;
   }
   .paper-header { display: none; }
   .paper-meta-row { display: none; }
